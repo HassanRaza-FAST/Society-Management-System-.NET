@@ -167,12 +167,20 @@
     <Compile Include="Admin\Admin_SocietyApplications.Designer.cs">
       <DependentUpon>Admin_SocietyApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\StudentService.cs" />
+    <Compile Include="BLL\UserService.cs" />
     <Compile Include="CreateSociety.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateSociety.Designer.cs">
       <DependentUpon>CreateSociety.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\StudentDataAccess.cs" />
+    <Compile Include="DAL\UserDataAccess.cs" />
+    <Compile Include="DomainModel\Society.cs" />
+    <Compile Include="DomainModel\SocietyApplication.cs" />
+    <Compile Include="DomainModel\SocietyExecutive.cs" />
+    <Compile Include="DomainModel\SocietyMember.cs" />
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +193,8 @@
     <Compile Include="AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\SocietyDataAccess.cs" />
+    <Compile Include="BLL\SocietyService.cs" />
     <Compile Include="StudentLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,7 +215,7 @@
     <Compile Include="SocietyMember\SocietyMember_Home.Designer.cs">
       <DependentUpon>SocietyMember_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student.cs" />
+    <Compile Include="DomainModel\Student.cs" />
     <Compile Include="Student\Student_Home.cs">
       <SubType>Form</SubType>
     </Compile>

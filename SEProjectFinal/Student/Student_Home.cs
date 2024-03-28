@@ -38,28 +38,13 @@ namespace SEProjectFinal
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // View all societies ( we display them )
-            using (SqlConnection connection = new SqlConnection(our_connection_string))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Societies", connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        // Create a DataTable to hold the data
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(reader);
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetAllSocieties();
 
-                        // Bind the DataTable to the DataGridView
-                        Viewing_Socities_Grid.DataSource = dataTable;
-
-                        // Show the DataGridView
-                        Viewing_Socities_Grid.Visible = true;
-                        Viewing_societies_label.Visible = true;
-
-                        
-                    }
-                }
-            }
+            Viewing_Socities_Grid.DataSource = dataTable;
+            Viewing_Socities_Grid.Visible = true;
+            Viewing_societies_label.Text = "Viewing All Societies";
+            Viewing_societies_label.Visible = true;
         }
 
         private void exitbtn_Click(object sender, EventArgs e)
