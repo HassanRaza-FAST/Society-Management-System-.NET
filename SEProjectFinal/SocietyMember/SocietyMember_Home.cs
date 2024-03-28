@@ -51,54 +51,28 @@ namespace SEProjectFinal
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // View all societies ( we display them )
-            using (SqlConnection connection = new SqlConnection(our_connection_string))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Societies", connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        // Create a DataTable to hold the data
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(reader);
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetAllSocieties();
 
-                        // Bind the DataTable to the DataGridView
-                        dataGridView1.DataSource = dataTable;
-
-                        // Show the DataGridView
-                        dataGridView1.Visible = true;
-                        label2.Text = "Viewing All Societies";
-                        label2.Visible = true;
-                    }
-                }
-            }
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Visible = true;
+            label2.Text = "Viewing All Societies";
+            label2.Visible = true;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // view all societies that this society member has joined
-            using (SqlConnection connection = new SqlConnection(our_connection_string))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Societies WHERE SocietyID IN (SELECT SocietyID FROM SocietyMembers WHERE StudentID = @studentId)", connection))
-                {
-                    command.Parameters.AddWithValue("@studentId", currentStudent.StudentID);
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        // Create a DataTable to hold the data
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(reader);
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetSocietiesByStudentId(currentStudent.StudentID);
 
-                        // Bind the DataTable to the DataGridView
-                        dataGridView1.DataSource = dataTable;
+            // Bind the DataTable to the DataGridView
+            dataGridView1.DataSource = dataTable;
 
-                        // Show the DataGridView
-                        dataGridView1.Visible = true;
-                        label2.Text = "Viewing Societies You Have Joined";
-                        label2.Visible = true;
-                    }
-                }
-            }
+            // Show the DataGridView
+            dataGridView1.Visible = true;
+            label2.Text = "Viewing Societies You Have Joined";
+            label2.Visible = true;
         }
 
 
