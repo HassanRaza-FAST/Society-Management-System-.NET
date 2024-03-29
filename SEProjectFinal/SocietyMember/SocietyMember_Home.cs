@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using SEProjectFinal.DomainModel;
 
 namespace SEProjectFinal
 {
@@ -29,7 +30,7 @@ namespace SEProjectFinal
         }
 
         private Student currentStudent;
-
+        private SocietyMember SocietyMember;
         public SocietyMember_Home(Student student)
         {
             InitializeComponent();
@@ -39,6 +40,8 @@ namespace SEProjectFinal
             label2.Visible = false;
             currentStudent = student;
             this.Text = "Society Member Home";
+            SocietyService societyService = new SocietyService(our_connection_string);
+            SocietyMember = societyService.GetSocietyMemberByStudentId(student.StudentID);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,6 +99,13 @@ namespace SEProjectFinal
         private void exitbtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            JoinSociety joinSociety = new JoinSociety(this);
+            joinSociety.Show();
         }
     }
 }

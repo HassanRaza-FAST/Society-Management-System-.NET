@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using SEProjectFinal.Mentor;
 
 namespace SEProjectFinal
 {
@@ -50,6 +51,13 @@ namespace SEProjectFinal
         {
             //close the application
             Application.Exit();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            MentorLogin mentorLogin = new MentorLogin();
+            mentorLogin.Show();
         }
     }
 }

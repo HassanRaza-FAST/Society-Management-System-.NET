@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Azure.Core;
+using Microsoft.Data.SqlClient;
 using SEProjectFinal.DomainModel;
 using System;
 using System.Collections.Generic;
@@ -101,6 +102,20 @@ namespace SEProjectFinal
                 }
             }
         }
+        public DataTable GetAllMembershipApplications()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM MembershipRequests", connection))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    return table;
+                }
+            }
+        }
 
         public int UpdateApplicationStatus(int applicationID, string status)
         {
@@ -187,10 +202,11 @@ namespace SEProjectFinal
                     int societyMemberCount = (int)command.ExecuteScalar();
                     societyMemberCount++; // Increment the count to get the new SocietyMemberID
 
-                    command.CommandText = "INSERT INTO SocietyMembers (SocietyMemberID, StudentID, SocietyID, JoinedDate) VALUES (@SocietyMemberID, @StudentID, @SocietyID, GETDATE())";
+                    command.CommandText = "INSERT INTO SocietyMembers (SocietyMemberID, StudentID, SocietyID, TeamName, JoinedDate) VALUES (@SocietyMemberID, @StudentID, @SocietyID, @TeamName, GETDATE())";
                     command.Parameters.AddWithValue("@SocietyMemberID", societyMemberCount);
                     command.Parameters.AddWithValue("@StudentID", societyMember.StudentID);
                     command.Parameters.AddWithValue("@SocietyID", societyMember.SocietyID);
+                    command.Parameters.AddWithValue("@TeamName", societyMember.TeamName);
                     int rowsInserted = command.ExecuteNonQuery();
                     if (rowsInserted > 0)
                     {
@@ -273,6 +289,228 @@ namespace SEProjectFinal
             }
         }
 
+        public int CreateMembershipRequest(MembershipRequest request)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // first get the number of number of rows in the table SocietyCreationApplications
+                using (SqlCommand command1 = new SqlCommand("SELECT COUNT(*) FROM SocietyCreationApplications", connection))
+                {
+                    int count = (int)command1.ExecuteScalar();
+                    count++;
+
+
+                    // Insert the request into the database.
+                    using (SqlCommand command = new SqlCommand("INSERT INTO MembershipRequests (RequestID, StudentID, SocietyID, RequestDate, Status, DepartmentName, TeamName, Description) VALUES (@RequestID, @StudentID, @SocietyID, @RequestDate, @Status, @DepartmentName, @TeamName, @Description)", connection))
+                    {
+                        command.Parameters.AddWithValue(@"RequestID", count);
+                        command.Parameters.AddWithValue("@StudentID", request.StudentID);
+                        command.Parameters.AddWithValue("@SocietyID", request.SocietyID);
+                        command.Parameters.AddWithValue("@RequestDate", request.RequestDate);
+                        command.Parameters.AddWithValue("@Status", request.Status);
+                        command.Parameters.AddWithValue("@DepartmentName", request.DepartmentName);
+                        command.Parameters.AddWithValue("@TeamName", request.TeamName);
+                        command.Parameters.AddWithValue("@Description", request.Description);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+
+                        if (rowsAffected > 0)
+                        {
+                            return count; // return the ApplicationID of the newly created application
+                        }
+                        else
+                        {
+                            return -1; // return -1 to indicate that the insertion failed
+                        }
+                    }
+                }
+            }
+        }
+        public int UpdateMembershipStatus(int requestID, string status)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("UPDATE MembershipRequests SET Status = @Status WHERE RequestID = @RequestID", connection))
+                {
+                    command.Parameters.AddWithValue("@Status", status);
+                    command.Parameters.AddWithValue("@RequestID", requestID);
+                    return command.ExecuteNonQuery();
+                }
+            }
+        }
+        public MembershipRequest GetMembershipRequestDetails(int requestID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM MembershipRequests WHERE RequestID = @RequestID", connection))
+                {
+                    command.Parameters.AddWithValue("@RequestID", requestID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new MembershipRequest
+                            {
+                                RequestID = reader.GetInt32(reader.GetOrdinal("RequestID")),
+                                StudentID = reader.GetInt32(reader.GetOrdinal("StudentID")),
+                                SocietyID = reader.GetInt32(reader.GetOrdinal("SocietyID")),
+                                TeamName = reader.GetString(reader.GetOrdinal("TeamName")),
+                                RequestDate = reader.GetDateTime(reader.GetOrdinal("RequestDate")),
+                                Status = reader.GetString(reader.GetOrdinal("Status")),
+                                DepartmentName = reader.GetString(reader.GetOrdinal("DepartmentName")),
+                                Description = reader.GetString(reader.GetOrdinal("Description"))
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
+        public int CreateEvent(Event newEvent)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // First, get the number of rows in the Events table
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Events", connection))
+                {
+                    int count = (int)command.ExecuteScalar();
+                    count++; // Increment the count to get the new EventID
+
+                    // Then, insert the new event
+                    command.CommandText = "INSERT INTO Events (EventID, SocietyID, EventName, Description, EventDate, Location, CreatedByStudentID, Status) OUTPUT INSERTED.EventID VALUES (@EventID, @SocietyID, @EventName, @Description, @EventDate, @Location, @CreatedByStudentID, 'Pending')";
+                    command.Parameters.AddWithValue("@EventID", count);
+                    command.Parameters.AddWithValue("@SocietyID", newEvent.SocietyID);
+                    command.Parameters.AddWithValue("@EventName", newEvent.EventName);
+                    command.Parameters.AddWithValue("@Description", newEvent.Description);
+                    command.Parameters.AddWithValue("@EventDate", newEvent.EventDate);
+                    command.Parameters.AddWithValue("@Location", newEvent.Location);
+                    command.Parameters.AddWithValue("@CreatedByStudentID", newEvent.CreatedByStudentID);
+
+                    return (int)command.ExecuteScalar();
+                }
+            }
+        }
+        public DataTable GetEventsByStatus(string status, int societyId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Events WHERE Status = @Status AND SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@Status", status);
+                    command.Parameters.AddWithValue("@SocietyID", societyId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        return dataTable;
+                    }
+                }
+            }
+        }
+        public DataTable GetEvents(int societyId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Events WHERE SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@SocietyID", societyId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        return dataTable;
+                    }
+                }
+            }
+        }
+        public SocietyExecutive GetSocietyExecutiveByStudentId(int studentId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM SocietyExecutives WHERE StudentID = @StudentID", connection))
+                {
+                    command.Parameters.AddWithValue("@StudentID", studentId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new SocietyExecutive
+                            {
+                                ExecutiveID = reader.GetInt32(reader.GetOrdinal("ExecutiveID")),
+                                SocietyID = reader.GetInt32(reader.GetOrdinal("SocietyID")),
+                                StudentID = reader.GetInt32(reader.GetOrdinal("StudentID")),
+                                Position = reader.GetString(reader.GetOrdinal("Position")),
+                                SocietyMemberID = reader.GetInt32(reader.GetOrdinal("SocietyMemberID"))
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
+        public SocietyMember GetSocietyMemberByStudentId(int studentId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM SocietyMembers WHERE StudentID = @StudentID", connection))
+                {
+                    command.Parameters.AddWithValue("@StudentID", studentId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new SocietyMember
+                            {
+                                SocietyMemberID = reader.GetInt32(reader.GetOrdinal("SocietyMemberID")),
+                                StudentID = reader.GetInt32(reader.GetOrdinal("StudentID")),
+                                SocietyID = reader.GetInt32(reader.GetOrdinal("SocietyID")),
+                                TeamName = reader.GetString(reader.GetOrdinal("TeamName")),
+                                JoinedDate = reader.GetDateTime(reader.GetOrdinal("JoinedDate"))
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
+        public void UpdateEventStatus(int eventId, string status)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("UPDATE Events SET Status = @Status WHERE EventID = @EventID", connection))
+                {
+                    command.Parameters.AddWithValue("@Status", status);
+                    command.Parameters.AddWithValue("@EventID", eventId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
     }
 
 }
+
+
+

@@ -35,6 +35,7 @@
             this.Viewing_Socities_Grid = new System.Windows.Forms.DataGridView();
             this.exitbtn = new System.Windows.Forms.Button();
             this.createSocietylbl = new System.Windows.Forms.LinkLabel();
+            this.joinsocietybtn = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.Viewing_Socities_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,23 @@
             this.createSocietylbl.Text = "Create Societies";
             this.createSocietylbl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.createSocietylbl_LinkClicked);
             // 
+            // joinsocietybtn
+            // 
+            this.joinsocietybtn.AutoSize = true;
+            this.joinsocietybtn.Location = new System.Drawing.Point(33, 194);
+            this.joinsocietybtn.Name = "joinsocietybtn";
+            this.joinsocietybtn.Size = new System.Drawing.Size(72, 13);
+            this.joinsocietybtn.TabIndex = 9;
+            this.joinsocietybtn.TabStop = true;
+            this.joinsocietybtn.Text = "Join Societies";
+            this.joinsocietybtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.joinsocietybtn_LinkClicked);
+            // 
             // Student_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.joinsocietybtn);
             this.Controls.Add(this.createSocietylbl);
             this.Controls.Add(this.exitbtn);
             this.Controls.Add(this.Viewing_Socities_Grid);
@@ -121,6 +134,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Student_Home";
             this.Text = "Student_Home";
+            this.Load += new System.EventHandler(this.Student_Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Viewing_Socities_Grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,5 +150,6 @@
         private System.Windows.Forms.DataGridView Viewing_Socities_Grid;
         private System.Windows.Forms.Button exitbtn;
         private System.Windows.Forms.LinkLabel createSocietylbl;
+        private System.Windows.Forms.LinkLabel joinsocietybtn;
     }
 }

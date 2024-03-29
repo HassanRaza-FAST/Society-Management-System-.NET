@@ -15,12 +15,14 @@ namespace SEProjectFinal
     public partial class Student_Home : Form
     {
         string our_connection_string = ConfigurationManager.ConnectionStrings["our_database"].ConnectionString;
-        public Student_Home()
+        private Student student;
+        public Student_Home(Student student)
         {
             InitializeComponent();
             Viewing_Socities_Grid.Visible = false;
             Viewing_societies_label.Visible = false;
             this.Text = "Student Home";
+            this.student = student;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,6 +59,18 @@ namespace SEProjectFinal
             this.Hide();
             CreateSociety createSociety = new CreateSociety(this);
             createSociety.Show();
+        }
+
+        private void joinsocietybtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            JoinSociety joinSociety = new JoinSociety(this);
+            joinSociety.Show();
+        }
+
+        private void Student_Home_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

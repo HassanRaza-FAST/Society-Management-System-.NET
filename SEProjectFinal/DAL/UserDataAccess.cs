@@ -27,9 +27,9 @@ namespace SEProjectFinal.DAL
             {
                 query = "SELECT * FROM Administrators WHERE Email = @Email AND Password = @Password";
             }
-            else if(userType == "Student")
+            else if(userType == "Mentor")
             {
-                query = "SELECT * FROM Students WHERE Email = @Email AND Password = @Password";
+                query = "SELECT * FROM Mentors WHERE Email = @Email AND Password = @Password";
             }
             else
             {
@@ -50,6 +50,35 @@ namespace SEProjectFinal.DAL
                 }
             }   
 
+        }
+        // get mentor by email
+        public DomainModel.Mentor GetMentor(string email)
+        {
+            DomainModel.Mentor mentor = new DomainModel.Mentor();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Mentors WHERE Email = @Email", connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            mentor.MentorID = reader.GetInt32(reader.GetOrdinal("MentorID"));
+                            mentor.Specialization = reader.GetString(reader.GetOrdinal("Specialization"));
+                            mentor.Username = reader.GetString(reader.GetOrdinal("Username"));
+                            mentor.Password = reader.GetString(reader.GetOrdinal("Password"));
+                            mentor.Email = reader.GetString(reader.GetOrdinal("Email"));
+                            mentor.FullName = reader.GetString(reader.GetOrdinal("FullName"));
+                            mentor.DepartmentName = reader.GetString(reader.GetOrdinal("DepartmentName"));
+                            mentor.SocietyID = reader.GetInt32(reader.GetOrdinal("SocietyID"));
+                        }
+                    }
+                }
+            }
+            return mentor;
         }
 
     }

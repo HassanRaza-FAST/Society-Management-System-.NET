@@ -169,6 +169,12 @@
     </Compile>
     <Compile Include="BLL\StudentService.cs" />
     <Compile Include="BLL\UserService.cs" />
+    <Compile Include="CreateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEvent.Designer.cs">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateSociety.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </Compile>
     <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
+    <Compile Include="DomainModel\Event.cs" />
+    <Compile Include="DomainModel\Mentor.cs" />
+    <Compile Include="DomainModel\MembershipRequest.cs" />
     <Compile Include="DomainModel\Society.cs" />
     <Compile Include="DomainModel\SocietyApplication.cs" />
     <Compile Include="DomainModel\SocietyExecutive.cs" />
@@ -187,18 +196,48 @@
     <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminLogin.cs">
+    <Compile Include="Admin\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminLogin.Designer.cs">
+    <Compile Include="Admin\AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\SocietyDataAccess.cs" />
     <Compile Include="BLL\SocietyService.cs" />
-    <Compile Include="StudentLogin.cs">
+    <Compile Include="JoinSociety.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentLogin.Designer.cs">
+    <Compile Include="JoinSociety.Designer.cs">
+      <DependentUpon>JoinSociety.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor\MentorLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\MentorLogin.Designer.cs">
+      <DependentUpon>MentorLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor\Mentor_ApproveMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\Mentor_ApproveMember.Designer.cs">
+      <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor\Mentor_EventApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\Mentor_EventApproval.Designer.cs">
+      <DependentUpon>Mentor_EventApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor\Mentor_Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\Mentor_Home.Designer.cs">
+      <DependentUpon>Mentor_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\StudentLogin.Designer.cs">
       <DependentUpon>StudentLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -231,16 +270,34 @@
     <EmbeddedResource Include="Admin\Admin_SocietyApplications.resx">
       <DependentUpon>Admin_SocietyApplications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateEvent.resx">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateSociety.resx">
       <DependentUpon>CreateSociety.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminLogin.resx">
+    <EmbeddedResource Include="Admin\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentLogin.resx">
+    <EmbeddedResource Include="JoinSociety.resx">
+      <DependentUpon>JoinSociety.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\MentorLogin.resx">
+      <DependentUpon>MentorLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\Mentor_ApproveMember.resx">
+      <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\Mentor_EventApproval.resx">
+      <DependentUpon>Mentor_EventApproval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\Mentor_Home.resx">
+      <DependentUpon>Mentor_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\StudentLogin.resx">
       <DependentUpon>StudentLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -276,9 +333,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Faculty\" />
     <Folder Include="Images\" />
-    <Folder Include="Mentor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.2.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

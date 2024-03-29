@@ -34,6 +34,7 @@ namespace SEProjectFinal
         {
             return societyDataAccess.GetAllSocietyApplications();
         }
+
         public int UpdateApplicationStatus(int applicationID, string status)
         {
             return societyDataAccess.UpdateApplicationStatus(applicationID, status);
@@ -62,6 +63,48 @@ namespace SEProjectFinal
         {
             return societyDataAccess.DeleteSociety(societyID);
         }
+
+        public int CreateMembershipRequest(MembershipRequest application)
+        {
+            return societyDataAccess.CreateMembershipRequest(application);
+        }
+        public DataTable GetAllMembershipApplications()
+        {
+            return societyDataAccess.GetAllMembershipApplications();
+        }
+        public int UpdateMembershipStatus(int requestID, string status)
+        {
+            return societyDataAccess.UpdateMembershipStatus(requestID, status);
+        }
+        public MembershipRequest GetMembershipRequestDetails(int requestID)
+        {
+            return societyDataAccess.GetMembershipRequestDetails(requestID);
+        }
+        public int CreateEvent(Event newEvent)
+        {
+            return societyDataAccess.CreateEvent(newEvent);
+        }
+        public DataTable GetEventsByStatus(string status, int societyId)
+        {
+            return societyDataAccess.GetEventsByStatus(status, societyId);
+        }
+        public DataTable GetEvents(int societyId)
+        {
+            return societyDataAccess.GetEvents(societyId);
+        }
+        public SocietyExecutive GetSocietyExecutiveByStudentId(int studentId)
+        {
+            return societyDataAccess.GetSocietyExecutiveByStudentId(studentId);
+        }
+        public SocietyMember GetSocietyMemberByStudentId(int studentId)
+        {
+            return societyDataAccess.GetSocietyMemberByStudentId(studentId);
+        }
+        public void UpdateEventStatus(int eventId, string status)
+        {
+            societyDataAccess.UpdateEventStatus(eventId, status);
+        }
+
 
     }
 
