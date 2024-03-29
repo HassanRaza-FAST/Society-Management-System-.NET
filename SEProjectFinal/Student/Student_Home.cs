@@ -58,5 +58,12 @@ namespace SEProjectFinal
             CreateSociety createSociety = new CreateSociety(this);
             createSociety.Show();
         }
+
+        private void joinsocietybtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            JoinSociety joinSociety = new JoinSociety(this);
+            joinSociety.Show();
+        }
     }
 }

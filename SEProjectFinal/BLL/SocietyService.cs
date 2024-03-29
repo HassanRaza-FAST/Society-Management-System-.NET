@@ -34,6 +34,7 @@ namespace SEProjectFinal
         {
             return societyDataAccess.GetAllSocietyApplications();
         }
+
         public int UpdateApplicationStatus(int applicationID, string status)
         {
             return societyDataAccess.UpdateApplicationStatus(applicationID, status);
@@ -61,6 +62,23 @@ namespace SEProjectFinal
         public bool DeleteSociety(int societyID)
         {
             return societyDataAccess.DeleteSociety(societyID);
+        }
+
+        public int CreateMembershipRequest(MembershipRequest application)
+        {
+            return societyDataAccess.CreateMembershipRequest(application);
+        }
+        public DataTable GetAllMembershipApplications()
+        {
+            return societyDataAccess.GetAllMembershipApplications();
+        }
+        public int UpdateMembershipStatus(int requestID, string status)
+        {
+            return societyDataAccess.UpdateMembershipStatus(requestID, status);
+        }
+        public MembershipRequest GetMembershipRequestDetails(int requestID)
+        {
+            return societyDataAccess.GetMembershipRequestDetails(requestID);
         }
 
     }

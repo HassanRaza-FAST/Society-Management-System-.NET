@@ -97,5 +97,12 @@ namespace SEProjectFinal
         {
             Application.Exit();
         }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            JoinSociety joinSociety = new JoinSociety(this);
+            joinSociety.Show();
+        }
     }
 }

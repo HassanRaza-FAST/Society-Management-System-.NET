@@ -27,9 +27,9 @@ namespace SEProjectFinal.DAL
             {
                 query = "SELECT * FROM Administrators WHERE Email = @Email AND Password = @Password";
             }
-            else if(userType == "Student")
+            else if(userType == "Mentor")
             {
-                query = "SELECT * FROM Students WHERE Email = @Email AND Password = @Password";
+                query = "SELECT * FROM Mentors WHERE Email = @Email AND Password = @Password";
             }
             else
             {

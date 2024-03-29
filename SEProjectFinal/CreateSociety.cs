@@ -100,6 +100,12 @@ namespace SEProjectFinal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //check if all text fields are filled in our form
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(richTextBox1.Text))
+            {
+                MessageBox.Show("Please fill all the fields");
+                return;
+            }
             SocietyService societyService = new SocietyService(our_connection_string);
             SocietyApplication application = new SocietyApplication
             {
