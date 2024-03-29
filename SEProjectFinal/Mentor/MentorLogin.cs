@@ -36,7 +36,9 @@ namespace SEProjectFinal.Mentor
             {
                 // Log the user in
                 this.Hide();
-                Mentor_Home mentor_Home = new Mentor_Home();
+                // get Mentor object
+                DomainModel.Mentor mentor = userService.GetMentor(textBox1.Text);
+                Mentor_Home mentor_Home = new Mentor_Home(mentor);
                 mentor_Home.Show();
             }
             else
@@ -44,6 +46,11 @@ namespace SEProjectFinal.Mentor
                 // Show an error message
                 MessageBox.Show("Invalid Credentials");
             }
+        }
+
+        private void MentorLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

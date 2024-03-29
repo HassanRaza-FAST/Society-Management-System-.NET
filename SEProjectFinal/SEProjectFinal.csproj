@@ -169,6 +169,12 @@
     </Compile>
     <Compile Include="BLL\StudentService.cs" />
     <Compile Include="BLL\UserService.cs" />
+    <Compile Include="CreateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEvent.Designer.cs">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateSociety.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,7 @@
     </Compile>
     <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
+    <Compile Include="DomainModel\Event.cs" />
     <Compile Include="DomainModel\Mentor.cs" />
     <Compile Include="DomainModel\MembershipRequest.cs" />
     <Compile Include="DomainModel\Society.cs" />
@@ -214,6 +221,12 @@
     </Compile>
     <Compile Include="Mentor\Mentor_ApproveMember.Designer.cs">
       <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor\Mentor_EventApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\Mentor_EventApproval.Designer.cs">
+      <DependentUpon>Mentor_EventApproval.cs</DependentUpon>
     </Compile>
     <Compile Include="Mentor\Mentor_Home.cs">
       <SubType>Form</SubType>
@@ -257,6 +270,9 @@
     <EmbeddedResource Include="Admin\Admin_SocietyApplications.resx">
       <DependentUpon>Admin_SocietyApplications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateEvent.resx">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateSociety.resx">
       <DependentUpon>CreateSociety.cs</DependentUpon>
     </EmbeddedResource>
@@ -274,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor\Mentor_ApproveMember.resx">
       <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\Mentor_EventApproval.resx">
+      <DependentUpon>Mentor_EventApproval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor\Mentor_Home.resx">
       <DependentUpon>Mentor_Home.cs</DependentUpon>

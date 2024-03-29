@@ -138,7 +138,7 @@ namespace SEProjectFinal
                 // Student is not a society member, just a student
                 // Show the appropriate screen
                 this.Hide();
-                Student_Home student_Home = new Student_Home();
+                Student_Home student_Home = new Student_Home(student);
                 student_Home.Show();
                 return;
             }
@@ -150,7 +150,7 @@ namespace SEProjectFinal
                 // Student is an executive member
                 // Show the appropriate screen
                 this.Hide();
-                SocietyExecutive_Home societyExecutive_Home = new SocietyExecutive_Home();
+                SocietyExecutive_Home societyExecutive_Home = new SocietyExecutive_Home(student);
                 societyExecutive_Home.Show();
             }
             else

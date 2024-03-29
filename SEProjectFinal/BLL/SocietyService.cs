@@ -80,6 +80,31 @@ namespace SEProjectFinal
         {
             return societyDataAccess.GetMembershipRequestDetails(requestID);
         }
+        public int CreateEvent(Event newEvent)
+        {
+            return societyDataAccess.CreateEvent(newEvent);
+        }
+        public DataTable GetEventsByStatus(string status, int societyId)
+        {
+            return societyDataAccess.GetEventsByStatus(status, societyId);
+        }
+        public DataTable GetEvents(int societyId)
+        {
+            return societyDataAccess.GetEvents(societyId);
+        }
+        public SocietyExecutive GetSocietyExecutiveByStudentId(int studentId)
+        {
+            return societyDataAccess.GetSocietyExecutiveByStudentId(studentId);
+        }
+        public SocietyMember GetSocietyMemberByStudentId(int studentId)
+        {
+            return societyDataAccess.GetSocietyMemberByStudentId(studentId);
+        }
+        public void UpdateEventStatus(int eventId, string status)
+        {
+            societyDataAccess.UpdateEventStatus(eventId, status);
+        }
+
 
     }
 

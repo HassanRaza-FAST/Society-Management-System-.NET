@@ -101,6 +101,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MentorLogin";
             this.Text = "MentorLogin";
+            this.Load += new System.EventHandler(this.MentorLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

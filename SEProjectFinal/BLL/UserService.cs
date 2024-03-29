@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SEProjectFinal.BLL
 {
     class UserService
@@ -19,6 +20,10 @@ namespace SEProjectFinal.BLL
         public bool AreCredentialsValid(string email, string password, string userType)
         {
             return userDataAccess.AreCredentialsValid(email, password, userType);
+        }
+        public DomainModel.Mentor GetMentor(string email)
+        {
+            return userDataAccess.GetMentor(email);
         }
     }
 

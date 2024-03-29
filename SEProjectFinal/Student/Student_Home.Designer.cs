@@ -134,6 +134,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Student_Home";
             this.Text = "Student_Home";
+            this.Load += new System.EventHandler(this.Student_Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Viewing_Socities_Grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
