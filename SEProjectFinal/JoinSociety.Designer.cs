@@ -133,9 +133,13 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Marketing",
+            "Executive Team",
+            "Marketing ",
             "Operations",
-            "Social Media"});
+            "Finance",
+            "Information",
+            "Social Media",
+            "Sponsorship"});
             this.comboBox1.Location = new System.Drawing.Point(30, 323);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -149,9 +153,10 @@
             "Computer Science",
             "Electrical Engineering",
             "Business",
-            "Software Engineering",
-            "Artifcial Intelligence",
-            "Data Science"});
+            "Artificial Intelligence\')",
+            "Data Science",
+            "Cyber Security",
+            "Software Engineering"});
             this.comboBox2.Location = new System.Drawing.Point(30, 243);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
