@@ -59,8 +59,8 @@ namespace SEProjectFinal
 
             dataGridView1.DataSource = dataTable;
             dataGridView1.Visible = true;
-            label2.Text = "Viewing All Societies";
-            label2.Visible = true;
+            label1.Text = "Viewing All Societies";
+            label1.Visible = true;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,8 +74,8 @@ namespace SEProjectFinal
 
             // Show the DataGridView
             dataGridView1.Visible = true;
-            label2.Text = "Viewing Societies You Have Joined";
-            label2.Visible = true;
+            label1.Text = "Viewing Societies You Have Joined";
+            label1.Visible = true;
         }
 
 
@@ -106,6 +106,35 @@ namespace SEProjectFinal
             this.Hide();
             JoinSociety joinSociety = new JoinSociety(this);
             joinSociety.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // view your joined societies announcements
+            // your joined societies can be multiple
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetAnnouncementsForJoinedSocieties(currentStudent.StudentID);
+
+            // Bind the DataTable to the DataGridView
+            dataGridView1.DataSource = dataTable;
+
+            // Show the DataGridView
+            dataGridView1.Visible = true;
+            label1.Text = "Viewing Announcements From Societies You Have Joined";
+            label1.Visible = true;
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // view your joined societies events
+            // your joined societies can be multiple
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetEventsForJoinedSocieties(currentStudent.StudentID);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Visible = true;
+            label1.Text = "Viewing Events From Societies You Have Joined";
+            label1.Visible = true;
+
         }
     }
 }

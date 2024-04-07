@@ -18,7 +18,8 @@ namespace SEProjectFinal
 
         private Student student;
         private SocietyExecutive societyExecutive;
-        // Society Exective can only be a member of one society( He cant join other societies)
+       
+
         public SocietyExecutive_Home(Student student)
         {
             InitializeComponent();
@@ -92,6 +93,33 @@ namespace SEProjectFinal
             label2.Text = "Viewing Announcements made by you";
             label2.Visible = true;
             dataGridView1.Visible = true;
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //a society exec may be member of other societies as well
+            // show all events of all societies that this society exec is member of
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetEventsForJoinedSocieties(student.StudentID);
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Visible = true;
+            label1.Text = "Viewing Events From Societies You Have Joined";
+            label1.Visible = true;
+
+        }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetAnnouncementsForJoinedSocieties(student.StudentID);
+
+            // Bind the DataTable to the DataGridView
+            dataGridView1.DataSource = dataTable;
+
+            // Show the DataGridView
+            dataGridView1.Visible = true;
+            label1.Text = "Viewing Announcements From Societies You Have Joined";
+            label1.Visible = true;
         }
     }
 }

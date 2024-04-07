@@ -112,6 +112,14 @@ namespace SEProjectFinal
         {
             return societyDataAccess.GetAnnouncementofExec(studentId);
         }
+        public DataTable GetAnnouncementsForJoinedSocieties(int studentId)
+        {
+            return societyDataAccess.GetAnnouncementsForJoinedSocieties(studentId);
+        }
+        public DataTable GetEventsForJoinedSocieties(int studentId)
+        {
+            return societyDataAccess.GetEventsForJoinedSocieties(studentId);
+        }
     }
 
 }

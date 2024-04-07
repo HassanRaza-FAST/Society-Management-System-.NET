@@ -550,6 +550,57 @@ namespace SEProjectFinal
                 }
             }
         }
+        public DataTable GetAnnouncementsForJoinedSocieties(int studentId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = @"
+            SELECT A.* 
+            FROM Announcements A
+            INNER JOIN SocietyMembers SM ON A.SocietyID = SM.SocietyID
+            WHERE SM.StudentID = @studentId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", studentId);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable;
+                    }
+                }
+            }
+        }
+        public DataTable GetEventsForJoinedSocieties(int studentId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = @"
+        SELECT E.* 
+        FROM Events E
+        INNER JOIN SocietyMembers SM ON E.SocietyID = SM.SocietyID
+        WHERE SM.StudentID = @studentId AND E.Status = 'Accepted'";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", studentId);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable;
+                    }
+                }
+            }
+        }
+
     }
 
 }
