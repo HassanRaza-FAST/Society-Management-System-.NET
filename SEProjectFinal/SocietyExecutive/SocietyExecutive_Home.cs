@@ -18,6 +18,7 @@ namespace SEProjectFinal
 
         private Student student;
         private SocietyExecutive societyExecutive;
+        // Society Exective can only be a member of one society( He cant join other societies)
         public SocietyExecutive_Home(Student student)
         {
             InitializeComponent();
@@ -52,7 +53,7 @@ namespace SEProjectFinal
             DataTable dataTable = societyService.GetEventsByStatus("Pending", societyExecutive.SocietyID);
 
             dataGridView1.DataSource = dataTable;
-            label2.Text = "Viewing your Event Requests";
+            label2.Text = "Viewing all your Event Requests";
             label2.Visible = true;
             dataGridView1.Visible = true;
         }
@@ -63,7 +64,7 @@ namespace SEProjectFinal
             DataTable dataTable = societyService.GetEvents(societyExecutive.SocietyID);
 
             dataGridView1.DataSource = dataTable;
-            label2.Text = "Viewing all Schedued Events";
+            label2.Text = "Viewing all your Schedued Events";
             label2.Visible = true;
             dataGridView1.Visible = true;
         }
@@ -73,6 +74,24 @@ namespace SEProjectFinal
             this.Hide();
             CreateEvent createEvent = new CreateEvent(this);
             createEvent.Show();
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            CreateAnnouncement createAnnouncement = new CreateAnnouncement(this);
+            createAnnouncement.Show();
+        }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dataTable = societyService.GetAnnouncementofExec(societyExecutive.StudentID);
+
+            dataGridView1.DataSource = dataTable;
+            label2.Text = "Viewing Announcements made by you";
+            label2.Visible = true;
+            dataGridView1.Visible = true;
         }
     }
 }

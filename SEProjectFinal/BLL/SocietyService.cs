@@ -104,8 +104,14 @@ namespace SEProjectFinal
         {
             societyDataAccess.UpdateEventStatus(eventId, status);
         }
-
-
+        public int CreateAnnouncement(Announcement newAnnouncement)
+        {
+            return societyDataAccess.CreateAnnouncement(newAnnouncement);
+        }
+        public DataTable GetAnnouncementofExec(int studentId)
+        {
+            return societyDataAccess.GetAnnouncementofExec(studentId);
+        }
     }
 
 }

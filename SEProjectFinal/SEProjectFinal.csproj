@@ -169,6 +169,12 @@
     </Compile>
     <Compile Include="BLL\StudentService.cs" />
     <Compile Include="BLL\UserService.cs" />
+    <Compile Include="CreateAnnouncement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAnnouncement.Designer.cs">
+      <DependentUpon>CreateAnnouncement.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,7 @@
     </Compile>
     <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
+    <Compile Include="DomainModel\Announcement.cs" />
     <Compile Include="DomainModel\Event.cs" />
     <Compile Include="DomainModel\Mentor.cs" />
     <Compile Include="DomainModel\MembershipRequest.cs" />
@@ -269,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Admin_SocietyApplications.resx">
       <DependentUpon>Admin_SocietyApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAnnouncement.resx">
+      <DependentUpon>CreateAnnouncement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateEvent.resx">
       <DependentUpon>CreateEvent.cs</DependentUpon>

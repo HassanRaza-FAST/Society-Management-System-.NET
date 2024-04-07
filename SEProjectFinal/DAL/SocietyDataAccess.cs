@@ -507,7 +507,49 @@ namespace SEProjectFinal
             }
         }
 
+        public int CreateAnnouncement(Announcement newAnnouncement)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
 
+                // First, get the number of rows in the Announcements table
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Announcements", connection))
+                {
+                    int count = (int)command.ExecuteScalar();
+                    count++; // Increment the count to get the new AnnouncementID
+
+                    // Then, insert the new announcement
+                    command.CommandText = "INSERT INTO Announcements (AnnouncementID, SocietyID, Title, Description, CreatedByStudentID, CreatedDate) OUTPUT INSERTED.AnnouncementID VALUES (@AnnouncementID, @SocietyID, @Title, @Description, @CreatedByStudentID, @CreatedDate)";
+                    command.Parameters.AddWithValue("@AnnouncementID", count);
+                    command.Parameters.AddWithValue("@SocietyID", newAnnouncement.SocietyID);
+                    command.Parameters.AddWithValue("@Title", newAnnouncement.Title);
+                    command.Parameters.AddWithValue("@Description", newAnnouncement.Description);
+                    command.Parameters.AddWithValue("@CreatedByStudentID", newAnnouncement.CreatedByStudentID);
+                    command.Parameters.AddWithValue("@CreatedDate", newAnnouncement.CreatedDate);
+
+                    return (int)command.ExecuteScalar();
+                }
+            }
+        }
+        public DataTable GetAnnouncementofExec(int studentId)
+        {
+            // get all announcements where studentId = createdbystudentid
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Announcements WHERE CreatedByStudentID = @StudentID", connection))
+                {
+                    command.Parameters.AddWithValue("@StudentID", studentId);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        return dataTable;
+                    }
+                }
+            }
+        }
     }
 
 }
