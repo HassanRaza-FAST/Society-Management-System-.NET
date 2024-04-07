@@ -44,10 +44,6 @@ namespace SEProjectFinal
             return societyDataAccess.GetApplicationDetails(applicationID);
         }
 
-        public int CreateSociety(Society society)
-        {
-            return societyDataAccess.CreateSociety(society);
-        }
         public int CreateSociety(Society society, int mentorID)
         {
             return societyDataAccess.CreateSociety(society, mentorID);
@@ -122,6 +118,14 @@ namespace SEProjectFinal
         public DataTable GetEventsForJoinedSocieties(int studentId)
         {
             return societyDataAccess.GetEventsForJoinedSocieties(studentId);
+        }
+        public DataTable GetAllMentors()
+        {
+            return societyDataAccess.GetAllMentors();
+        }
+        public DataTable GetAllStudents()
+        {
+            return societyDataAccess.GetAllStudents();
         }
     }
 

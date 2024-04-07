@@ -32,6 +32,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.exitbtn = new System.Windows.Forms.Button();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -74,11 +76,33 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
             // 
+            // exitbtn
+            // 
+            this.exitbtn.Location = new System.Drawing.Point(151, 334);
+            this.exitbtn.Name = "exitbtn";
+            this.exitbtn.Size = new System.Drawing.Size(75, 23);
+            this.exitbtn.TabIndex = 5;
+            this.exitbtn.Text = "Exit";
+            this.exitbtn.UseVisualStyleBackColor = true;
+            this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
+            // 
+            // logoutbtn
+            // 
+            this.logoutbtn.Location = new System.Drawing.Point(51, 334);
+            this.logoutbtn.Name = "logoutbtn";
+            this.logoutbtn.Size = new System.Drawing.Size(75, 23);
+            this.logoutbtn.TabIndex = 4;
+            this.logoutbtn.Text = "Logout";
+            this.logoutbtn.UseVisualStyleBackColor = true;
+            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            // 
             // Mentor_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitbtn);
+            this.Controls.Add(this.logoutbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -97,5 +121,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button exitbtn;
+        private System.Windows.Forms.Button logoutbtn;
     }
 }

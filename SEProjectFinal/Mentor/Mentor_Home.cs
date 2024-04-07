@@ -37,5 +37,17 @@ namespace SEProjectFinal.Mentor
             Mentor_EventApproval mentor_EventApproval = new Mentor_EventApproval(this, mentor);
             mentor_EventApproval.Show();
         }
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MentorLogin mentorLogin = new MentorLogin();
+            mentorLogin.Show();
+        }
     }
 }
