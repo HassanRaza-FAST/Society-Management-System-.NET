@@ -48,7 +48,10 @@ namespace SEProjectFinal
         {
             return societyDataAccess.CreateSociety(society);
         }
-
+        public int CreateSociety(Society society, int mentorID)
+        {
+            return societyDataAccess.CreateSociety(society, mentorID);
+        }
         public int CreateSocietyMember(SocietyMember societyMember)
         {
             return societyDataAccess.CreateSocietyMember(societyMember);
