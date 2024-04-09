@@ -32,6 +32,9 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.exitbtn = new System.Windows.Forms.Button();
+            this.logoutbtn = new System.Windows.Forms.Button();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -74,11 +77,45 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
             // 
+            // exitbtn
+            // 
+            this.exitbtn.Location = new System.Drawing.Point(151, 334);
+            this.exitbtn.Name = "exitbtn";
+            this.exitbtn.Size = new System.Drawing.Size(75, 23);
+            this.exitbtn.TabIndex = 5;
+            this.exitbtn.Text = "Exit";
+            this.exitbtn.UseVisualStyleBackColor = true;
+            this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
+            // 
+            // logoutbtn
+            // 
+            this.logoutbtn.Location = new System.Drawing.Point(51, 334);
+            this.logoutbtn.Name = "logoutbtn";
+            this.logoutbtn.Size = new System.Drawing.Size(75, 23);
+            this.logoutbtn.TabIndex = 4;
+            this.logoutbtn.Text = "Logout";
+            this.logoutbtn.UseVisualStyleBackColor = true;
+            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(69, 214);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(79, 13);
+            this.linkLabel3.TabIndex = 6;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Delete Member";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
             // Mentor_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.exitbtn);
+            this.Controls.Add(this.logoutbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -97,5 +134,8 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button exitbtn;
+        private System.Windows.Forms.Button logoutbtn;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

@@ -32,6 +32,11 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.logoutbtn = new System.Windows.Forms.Button();
             this.exitbtn = new System.Windows.Forms.Button();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -76,17 +81,61 @@
             this.exitbtn.UseVisualStyleBackColor = true;
             this.exitbtn.Click += new System.EventHandler(this.button2_Click);
             // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(29, 142);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(89, 13);
+            this.linkLabel3.TabIndex = 4;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "View All Students";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(29, 188);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(85, 13);
+            this.linkLabel4.TabIndex = 5;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "View All Mentors";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(251, 72);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(348, 226);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(383, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
             // Admin_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.exitbtn);
             this.Controls.Add(this.logoutbtn);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Name = "Admin_Home";
             this.Text = "Admin_Home";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,5 +147,9 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Button logoutbtn;
         private System.Windows.Forms.Button exitbtn;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
     }
 }

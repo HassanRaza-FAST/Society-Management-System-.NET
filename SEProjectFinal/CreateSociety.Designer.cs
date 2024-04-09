@@ -126,7 +126,7 @@
             "Computer Science",
             "Electrical Engineering",
             "Business",
-            "Artificial Intelligence\')",
+            "Artificial Intelligence",
             "Data Science",
             "Cyber Security",
             "Software Engineering"});
