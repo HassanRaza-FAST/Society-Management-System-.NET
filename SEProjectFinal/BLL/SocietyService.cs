@@ -127,6 +127,20 @@ namespace SEProjectFinal
         {
             return societyDataAccess.GetAllStudents();
         }
+        public DataTable GetAllSocietyMembers(int societyID)
+        {
+            return societyDataAccess.GetAllSocietyMembers(societyID);
+        }
+        public bool DeleteSocietyMember(int studentID, int societyID)
+        {
+            // delete society member only if its not a society exective
+            SocietyExecutive societyExecutive = societyDataAccess.GetSocietyExecutiveByStudentId(studentID, societyID);
+            if (societyExecutive != null)
+            {
+                return false;
+            }
+            return societyDataAccess.DeleteSocietyMember(studentID, societyID);
+        }
     }
 
 }

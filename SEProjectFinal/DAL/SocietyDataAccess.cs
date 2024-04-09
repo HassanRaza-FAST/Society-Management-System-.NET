@@ -623,6 +623,67 @@ namespace SEProjectFinal
                 }
             }
         }
+        public DataTable GetAllSocietyMembers(int societyID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM SocietyMembers WHERE SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@SocietyID", societyID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(reader);
+                        return dataTable;
+                    }
+                }
+            }
+
+        }
+        public bool DeleteSocietyMember(int studentID, int societyID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("DELETE FROM SocietyMembers WHERE StudentID = @StudentID AND SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@StudentID", studentID);
+                    command.Parameters.AddWithValue("@SocietyID", societyID);
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public SocietyExecutive GetSocietyExecutiveByStudentId(int studentID, int societyID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM SocietyExecutives WHERE StudentID = @StudentID AND SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@StudentID", studentID);
+                    command.Parameters.AddWithValue("@SocietyID", societyID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new SocietyExecutive
+                            {
+                                ExecutiveID = reader.GetInt32(reader.GetOrdinal("ExecutiveID")),
+                                SocietyID = reader.GetInt32(reader.GetOrdinal("SocietyID")),
+                                StudentID = reader.GetInt32(reader.GetOrdinal("StudentID")),
+                                Position = reader.GetString(reader.GetOrdinal("Position")),
+                                SocietyMemberID = reader.GetInt32(reader.GetOrdinal("SocietyMemberID"))
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

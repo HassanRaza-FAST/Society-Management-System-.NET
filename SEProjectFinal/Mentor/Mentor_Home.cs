@@ -49,5 +49,12 @@ namespace SEProjectFinal.Mentor
             MentorLogin mentorLogin = new MentorLogin();
             mentorLogin.Show();
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Mentor_DeleteMember mentor_DeleteMember = new Mentor_DeleteMember(this, mentor);
+            mentor_DeleteMember.Show();
+        }
     }
 }

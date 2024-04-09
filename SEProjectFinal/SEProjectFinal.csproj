@@ -230,6 +230,12 @@
     <Compile Include="Mentor\Mentor_ApproveMember.Designer.cs">
       <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mentor\Mentor_DeleteMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\Mentor_DeleteMember.Designer.cs">
+      <DependentUpon>Mentor_DeleteMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mentor\Mentor_EventApproval.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor\Mentor_ApproveMember.resx">
       <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\Mentor_DeleteMember.resx">
+      <DependentUpon>Mentor_DeleteMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor\Mentor_EventApproval.resx">
       <DependentUpon>Mentor_EventApproval.cs</DependentUpon>
