@@ -46,6 +46,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 11;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -55,6 +56,7 @@
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Title";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox2
             // 
@@ -115,6 +117,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(100, 96);
             this.richTextBox1.TabIndex = 13;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label5
             // 
@@ -124,6 +127,7 @@
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Description";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CreateAnnouncement
             // 

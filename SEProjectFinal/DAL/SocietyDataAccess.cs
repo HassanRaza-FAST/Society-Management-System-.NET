@@ -23,10 +23,25 @@ namespace SEProjectFinal
 
         public DataTable GetAllSocieties()
         {
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            //{
+            //    connection.Open();
+            //    using (SqlCommand command = new SqlCommand("SELECT * FROM Societies", connection))
+            //    {
+            //        using (SqlDataReader reader = command.ExecuteReader())
+            //        {
+            //            DataTable dataTable = new DataTable();
+            //            dataTable.Load(reader);
+            //            return dataTable;
+            //        }
+            //    }
+            //}
+
+            // this query should show all societies, along with mentor which has been assigned to that particular society
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Societies", connection))
+                using (SqlCommand command = new SqlCommand("SELECT S.SocietyID, S.SocietyName, S.Description, S.CreatedByStudentID, S.DepartmentName, M.FullName as MentorName FROM Societies S LEFT JOIN Mentors M ON S.SocietyID = M.SocietyID", connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -36,6 +51,7 @@ namespace SEProjectFinal
                     }
                 }
             }
+
         }
         public int CreateSocietyApplication(SocietyApplication application)
         {
@@ -684,6 +700,90 @@ namespace SEProjectFinal
                 }
             }
         }
+        public bool UpdateAnnouncement(int announcementID, string title, string description)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("UPDATE Announcements SET Title = @Title, Description = @Description WHERE AnnouncementID = @AnnouncementID", connection))
+                {
+                    command.Parameters.AddWithValue("@Title", title);
+                    command.Parameters.AddWithValue("@Description", description);
+                    command.Parameters.AddWithValue("@AnnouncementID", announcementID);
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+        public bool UpdateEvent(int eventID, string eventName, string location, string description, DateTime eventDate)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("UPDATE Events SET EventName = @EventName, Location = @Location, Description = @Description, EventDate = @EventDate WHERE EventID = @EventID", connection))
+                {
+                    command.Parameters.AddWithValue("@EventName", eventName);
+                    command.Parameters.AddWithValue("@Location", location);
+                    command.Parameters.AddWithValue("@Description", description);
+                    command.Parameters.AddWithValue("@EventDate", eventDate);
+                    command.Parameters.AddWithValue("@EventID", eventID);
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+
+
+        public bool UpdateSociety(int societyID, string societyName, string description, int newMentorID, int originalMentorID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Start a new transaction
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Update the Societies table
+                        using (SqlCommand command = new SqlCommand("UPDATE Societies SET SocietyName = @SocietyName, Description = @Description WHERE SocietyID = @SocietyID", connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@SocietyName", societyName);
+                            command.Parameters.AddWithValue("@Description", description);
+                            command.Parameters.AddWithValue("@SocietyID", societyID);
+                            command.ExecuteNonQuery();
+                        }
+
+                        // Set the SocietyID of the original mentor to null
+                        using (SqlCommand command = new SqlCommand("UPDATE Mentors SET SocietyID = NULL WHERE MentorID = @OriginalMentorID", connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@OriginalMentorID", originalMentorID);
+                            command.ExecuteNonQuery();
+                        }
+
+                        // Update the SocietyID of the new mentor
+                        using (SqlCommand command = new SqlCommand("UPDATE Mentors SET SocietyID = @SocietyID WHERE MentorID = @NewMentorID", connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@SocietyID", societyID);
+                            command.Parameters.AddWithValue("@NewMentorID", newMentorID);
+                            command.ExecuteNonQuery();
+                        }
+
+                        // Commit the transaction
+                        transaction.Commit();
+
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        // Rollback the transaction
+                        transaction.Rollback();
+
+                        return false;
+                    }
+                }
+            }
+        }
+
     }
 
 }

@@ -121,5 +121,19 @@ namespace SEProjectFinal
             label1.Text = "Viewing Announcements From Societies You Have Joined";
             label1.Visible = true;
         }
+
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Edit_Announcement edit_Announcement = new Edit_Announcement(this, societyExecutive);
+            edit_Announcement.Show();
+        }
+
+        private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Edit_Event edit_Event = new Edit_Event(this, societyExecutive);
+            edit_Event.Show();
+        }
     }
 }
