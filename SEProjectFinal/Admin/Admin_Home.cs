@@ -70,5 +70,22 @@ namespace SEProjectFinal
             label1.Visible = true;
             dataGridView1.Visible = true;
         }
+
+        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // view all societies
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dt = societyService.GetAllSocieties();
+            dataGridView1.DataSource = dt;
+            label1.Visible = true;
+            dataGridView1.Visible = true;
+        }
+
+        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Edit_Society edit_Society = new Edit_Society();
+            edit_Society.Show();
+        }
     }
 }

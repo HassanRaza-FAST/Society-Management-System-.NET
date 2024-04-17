@@ -1,4 +1,5 @@
-﻿using SEProjectFinal.DomainModel;
+﻿using SEProjectFinal.DAL;
+using SEProjectFinal.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,11 @@ namespace SEProjectFinal
     class SocietyService
     {
         private SocietyDataAccess societyDataAccess;
-
+        private UserDataAccess userDataAccess;
         public SocietyService(string connectionString)
         {
             this.societyDataAccess = new SocietyDataAccess(connectionString);
+            this.userDataAccess = new UserDataAccess(connectionString);
         }
 
         public DataTable GetAllSocieties()
@@ -141,6 +143,28 @@ namespace SEProjectFinal
             }
             return societyDataAccess.DeleteSocietyMember(studentID, societyID);
         }
+        public bool UpdateAnnouncement(int announcementID, string title, string description)
+        {
+            return societyDataAccess.UpdateAnnouncement(announcementID, title, description);
+        }
+        public bool UpdateEvent(int eventID, string eventName, string location, string description, DateTime eventDate)
+        {
+            return societyDataAccess.UpdateEvent(eventID, eventName, location, description, eventDate);
+        }
+        public bool UpdateSociety(int societyID, string societyName, string mentorName, string description)
+        {
+            // Check if the new mentor exists, if it does not exist then return false
+            int newMentorID = userDataAccess.GetMentorID(mentorName);
+            if (newMentorID == -1)
+            {
+                return false;
+            }
+            // get the original mentor as well
+            int originalMentorID = userDataAccess.GetMentorID(societyID);
+
+            return societyDataAccess.UpdateSociety(societyID, societyName, description, newMentorID, originalMentorID);
+        }
+
     }
 
 }

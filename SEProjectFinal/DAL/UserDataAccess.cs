@@ -76,7 +76,47 @@ namespace SEProjectFinal.DAL
             }
             return mentor;
         }
-
+        public int GetMentorID(int societyID)
+        {
+            //
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT MentorID FROM Mentors WHERE SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@SocietyID", societyID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            return reader.GetInt32(reader.GetOrdinal("MentorID"));
+                        }
+                        else return -1;
+                    }
+                }
+            }
+        }
+        public int GetMentorID(string mentorName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT MentorID FROM Mentors WHERE FullName = @FullName", connection))
+                {
+                    command.Parameters.AddWithValue("@FullName", mentorName);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            return reader.GetInt32(reader.GetOrdinal("MentorID"));
+                        }
+                        else return -1;
+                    }
+                }
+            }
+        }
     }
 
 }

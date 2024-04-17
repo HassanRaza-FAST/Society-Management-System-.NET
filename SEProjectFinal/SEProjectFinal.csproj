@@ -198,6 +198,24 @@
     <Compile Include="DomainModel\SocietyApplication.cs" />
     <Compile Include="DomainModel\SocietyExecutive.cs" />
     <Compile Include="DomainModel\SocietyMember.cs" />
+    <Compile Include="Edit Announcement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Announcement.Designer.cs">
+      <DependentUpon>Edit Announcement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Event.Designer.cs">
+      <DependentUpon>Edit Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit Society.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Society.Designer.cs">
+      <DependentUpon>Edit Society.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +310,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateSociety.resx">
       <DependentUpon>CreateSociety.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit Announcement.resx">
+      <DependentUpon>Edit Announcement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit Event.resx">
+      <DependentUpon>Edit Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit Society.resx">
+      <DependentUpon>Edit Society.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
