@@ -29,24 +29,50 @@ namespace SEProjectFinal
             societyExecutive = societyService.GetSocietyExecutiveByStudentId(student.StudentID);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            StudentLogin form3 = new StudentLogin();
-            form3.Show();
-        }
+        
 
-        private void exitbtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void SocietyExecutive_Home_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        
+
+        
+
+        
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StudentLogin form3 = new StudentLogin();
+            form3.Show();
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CreateEvent createEvent = new CreateEvent(this);
+            createEvent.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dataTable = societyService.GetEventsByStatus("Pending", societyExecutive.SocietyID);
@@ -57,7 +83,7 @@ namespace SEProjectFinal
             dataGridView1.Visible = true;
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton4_Click(object sender, EventArgs e)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dataTable = societyService.GetEvents(societyExecutive.SocietyID);
@@ -66,13 +92,6 @@ namespace SEProjectFinal
             label2.Text = "Viewing all Schedued Events";
             label2.Visible = true;
             dataGridView1.Visible = true;
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            CreateEvent createEvent = new CreateEvent(this);
-            createEvent.Show();
         }
     }
 }
