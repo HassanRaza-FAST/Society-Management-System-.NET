@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Configuration;
 using SEProjectFinal.BLL;
 
+using static System.Net.Mime.MediaTypeNames;
+
 namespace SEProjectFinal
 {
     public partial class AdminLogin : Form
@@ -28,7 +30,8 @@ namespace SEProjectFinal
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             UserService userService = new UserService(our_connection_string);
             bool areCredentialsValid = userService.AreCredentialsValid(textBox1.Text, textBox2.Text, "Admin");
@@ -47,11 +50,21 @@ namespace SEProjectFinal
             }
         }
 
-        private void returnbtn_Click(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
             HomeScreen homeScreen = new HomeScreen();
             homeScreen.Show();
+        }
+
+        private void bunifuIconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

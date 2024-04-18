@@ -52,5 +52,33 @@ namespace SEProjectFinal.Mentor
         {
 
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            UserService userService = new UserService(our_connection_string);
+            bool areCredentialsValid = userService.AreCredentialsValid(textBox1.Text, textBox2.Text, "Mentor");
+
+            if (areCredentialsValid)
+            {
+                // Log the user in
+                this.Hide();
+                // get Mentor object
+                DomainModel.Mentor mentor = userService.GetMentor(textBox1.Text);
+                Mentor_Home mentor_Home = new Mentor_Home(mentor);
+                mentor_Home.Show();
+            }
+            else
+            {
+                // Show an error message
+                MessageBox.Show("Invalid Credentials");
+            }
+        }
     }
 }

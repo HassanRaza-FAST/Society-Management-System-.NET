@@ -28,7 +28,6 @@ namespace SEProjectFinal.Mentor
 
         private void Mentor_Home_Load(object sender, EventArgs e)
         {
-            label2.Text = "Welcome mentor";
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -37,6 +36,25 @@ namespace SEProjectFinal.Mentor
             Mentor_EventApproval mentor_EventApproval = new Mentor_EventApproval(this, mentor);
             mentor_EventApproval.Show();
         }
+
+
+        private void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Mentor_ApproveMember mentor_ApproveMember = new Mentor_ApproveMember(this);
+            mentor_ApproveMember.Show();
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Mentor_EventApproval mentor_EventApproval = new Mentor_EventApproval(this, mentor);
+            mentor_EventApproval.Show();
 
         private void exitbtn_Click(object sender, EventArgs e)
         {
@@ -55,6 +73,7 @@ namespace SEProjectFinal.Mentor
             this.Hide();
             Mentor_DeleteMember mentor_DeleteMember = new Mentor_DeleteMember(this, mentor);
             mentor_DeleteMember.Show();
+
         }
     }
 }

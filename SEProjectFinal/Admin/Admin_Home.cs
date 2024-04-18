@@ -23,26 +23,34 @@ namespace SEProjectFinal
             dataGridView1.Visible = false;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
             Admin_SocietyApplications admin_society_applications = new Admin_SocietyApplications();
             admin_society_applications.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            //close application
+            this.Hide();
+            Admin_DeleteSocieties admin_delete_societies = new Admin_DeleteSocieties();
+            admin_delete_societies.Show();
+        }
+
+        private void bunifuIconButton1_Click(object sender, EventArgs e)
+        {
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bunifuButton3_Click(object sender, EventArgs e)
         {
             // return to homepage
             this.Hide();
             HomeScreen homeScreen = new HomeScreen();
             homeScreen.Show();
         }
+
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -87,5 +95,6 @@ namespace SEProjectFinal
             Edit_Society edit_Society = new Edit_Society();
             edit_Society.Show();
         }
+
     }
 }
