@@ -1,4 +1,5 @@
-﻿using SEProjectFinal.DomainModel;
+﻿using SEProjectFinal.DAL;
+using SEProjectFinal.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,10 +13,11 @@ namespace SEProjectFinal
     class SocietyService
     {
         private SocietyDataAccess societyDataAccess;
-
+        private UserDataAccess userDataAccess;
         public SocietyService(string connectionString)
         {
             this.societyDataAccess = new SocietyDataAccess(connectionString);
+            this.userDataAccess = new UserDataAccess(connectionString);
         }
 
         public DataTable GetAllSocieties()
@@ -44,11 +46,10 @@ namespace SEProjectFinal
             return societyDataAccess.GetApplicationDetails(applicationID);
         }
 
-        public int CreateSociety(Society society)
+        public int CreateSociety(Society society, int mentorID)
         {
-            return societyDataAccess.CreateSociety(society);
+            return societyDataAccess.CreateSociety(society, mentorID);
         }
-
         public int CreateSocietyMember(SocietyMember societyMember)
         {
             return societyDataAccess.CreateSocietyMember(societyMember);
@@ -104,7 +105,65 @@ namespace SEProjectFinal
         {
             societyDataAccess.UpdateEventStatus(eventId, status);
         }
+        public int CreateAnnouncement(Announcement newAnnouncement)
+        {
+            return societyDataAccess.CreateAnnouncement(newAnnouncement);
+        }
+        public DataTable GetAnnouncementofExec(int studentId)
+        {
+            return societyDataAccess.GetAnnouncementofExec(studentId);
+        }
+        public DataTable GetAnnouncementsForJoinedSocieties(int studentId)
+        {
+            return societyDataAccess.GetAnnouncementsForJoinedSocieties(studentId);
+        }
+        public DataTable GetEventsForJoinedSocieties(int studentId)
+        {
+            return societyDataAccess.GetEventsForJoinedSocieties(studentId);
+        }
+        public DataTable GetAllMentors()
+        {
+            return societyDataAccess.GetAllMentors();
+        }
+        public DataTable GetAllStudents()
+        {
+            return societyDataAccess.GetAllStudents();
+        }
+        public DataTable GetAllSocietyMembers(int societyID)
+        {
+            return societyDataAccess.GetAllSocietyMembers(societyID);
+        }
+        public bool DeleteSocietyMember(int studentID, int societyID)
+        {
+            // delete society member only if its not a society exective
+            SocietyExecutive societyExecutive = societyDataAccess.GetSocietyExecutiveByStudentId(studentID, societyID);
+            if (societyExecutive != null)
+            {
+                return false;
+            }
+            return societyDataAccess.DeleteSocietyMember(studentID, societyID);
+        }
+        public bool UpdateAnnouncement(int announcementID, string title, string description)
+        {
+            return societyDataAccess.UpdateAnnouncement(announcementID, title, description);
+        }
+        public bool UpdateEvent(int eventID, string eventName, string location, string description, DateTime eventDate)
+        {
+            return societyDataAccess.UpdateEvent(eventID, eventName, location, description, eventDate);
+        }
+        public bool UpdateSociety(int societyID, string societyName, string mentorName, string description)
+        {
+            // Check if the new mentor exists, if it does not exist then return false
+            int newMentorID = userDataAccess.GetMentorID(mentorName);
+            if (newMentorID == -1)
+            {
+                return false;
+            }
+            // get the original mentor as well
+            int originalMentorID = userDataAccess.GetMentorID(societyID);
 
+            return societyDataAccess.UpdateSociety(societyID, societyName, description, newMentorID, originalMentorID);
+        }
 
     }
 

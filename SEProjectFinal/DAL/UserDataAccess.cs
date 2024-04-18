@@ -19,17 +19,14 @@ namespace SEProjectFinal.DAL
 
         public bool AreCredentialsValid(string email, string password, string userType)
         {
-            // Implement your SQL query to check if the credentials are valid of the type of user
-            // Return true if they are, false otherwise
-            // write the query for user type
             string query;
-            if(userType == "Admin")
+            if (userType == "Admin")
             {
                 query = "SELECT * FROM Administrators WHERE Email = @Email AND Password = @Password";
             }
-            else if(userType == "Mentor")
+            else if (userType == "Mentor")
             {
-                query = "SELECT * FROM Mentors WHERE Email = @Email AND Password = @Password";
+                query = "SELECT * FROM Mentors WHERE Email = @Email AND Password = @Password AND SocietyID IS NOT NULL";
             }
             else
             {
@@ -48,8 +45,7 @@ namespace SEProjectFinal.DAL
                         return reader.HasRows;
                     }
                 }
-            }   
-
+            }
         }
         // get mentor by email
         public DomainModel.Mentor GetMentor(string email)
@@ -80,7 +76,47 @@ namespace SEProjectFinal.DAL
             }
             return mentor;
         }
-
+        public int GetMentorID(int societyID)
+        {
+            //
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT MentorID FROM Mentors WHERE SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@SocietyID", societyID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            return reader.GetInt32(reader.GetOrdinal("MentorID"));
+                        }
+                        else return -1;
+                    }
+                }
+            }
+        }
+        public int GetMentorID(string mentorName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT MentorID FROM Mentors WHERE FullName = @FullName", connection))
+                {
+                    command.Parameters.AddWithValue("@FullName", mentorName);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            return reader.GetInt32(reader.GetOrdinal("MentorID"));
+                        }
+                        else return -1;
+                    }
+                }
+            }
+        }
     }
 
 }

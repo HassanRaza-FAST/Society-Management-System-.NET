@@ -13,5 +13,10 @@ namespace SEProjectFinal.DomainModel
         public int SocietyID { get; set; }
         public string TeamName { get; set; }
         public DateTime JoinedDate { get; set; }
+        public SocietyMember()
+        {
+            TeamName = "Executive Team";
+        }
     }
+    
 }

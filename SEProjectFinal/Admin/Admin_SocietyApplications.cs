@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using SEProjectFinal.DomainModel;
 using System.Net.Sockets;
+using Microsoft.VisualBasic;
 
 namespace SEProjectFinal
 {
@@ -230,7 +231,10 @@ namespace SEProjectFinal
                             CreatedByStudentID = application.StudentID,
                             DepartmentName = application.DepartmentName
                         };
-                        int societyId = societyService.CreateSociety(society);
+
+                        int mentorId = PromptForMentorId();
+
+                        int societyId = societyService.CreateSociety(society, mentorId);
                         if (societyId > 0)
                         {
                             MessageBox.Show("Society created successfully.");
@@ -323,6 +327,7 @@ namespace SEProjectFinal
             admin_Home.Show();
         }
 
+
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -352,5 +357,33 @@ namespace SEProjectFinal
                 MessageBox.Show("Please select an application to accept.");
             }
         }
+
+        private int PromptForMentorId()
+        {
+            int mentorId = 0;
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Please enter the mentor ID for the newly created society:", "Enter Mentor ID", "");
+            if (!string.IsNullOrEmpty(input))
+            {
+                if (int.TryParse(input, out mentorId))
+                {
+                    // Mentor ID entered successfully
+                    return mentorId;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid mentor ID. Please enter a valid numeric ID.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No mentor ID entered. Please enter a valid numeric ID.");
+            }
+
+            // Return 0 if mentor ID was not entered or invalid
+            return mentorId;
+        }
+
+
+
     }
 }

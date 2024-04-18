@@ -182,6 +182,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateEvent";
             this.Text = "CreateEvent";
+            this.Load += new System.EventHandler(this.CreateEvent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

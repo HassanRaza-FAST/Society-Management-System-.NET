@@ -77,6 +77,7 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.35.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.35.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -176,6 +177,12 @@
     </Compile>
     <Compile Include="BLL\StudentService.cs" />
     <Compile Include="BLL\UserService.cs" />
+    <Compile Include="CreateAnnouncement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAnnouncement.Designer.cs">
+      <DependentUpon>CreateAnnouncement.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +197,7 @@
     </Compile>
     <Compile Include="DAL\StudentDataAccess.cs" />
     <Compile Include="DAL\UserDataAccess.cs" />
+    <Compile Include="DomainModel\Announcement.cs" />
     <Compile Include="DomainModel\Event.cs" />
     <Compile Include="DomainModel\Mentor.cs" />
     <Compile Include="DomainModel\MembershipRequest.cs" />
@@ -197,6 +205,24 @@
     <Compile Include="DomainModel\SocietyApplication.cs" />
     <Compile Include="DomainModel\SocietyExecutive.cs" />
     <Compile Include="DomainModel\SocietyMember.cs" />
+    <Compile Include="Edit Announcement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Announcement.Designer.cs">
+      <DependentUpon>Edit Announcement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Event.Designer.cs">
+      <DependentUpon>Edit Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit Society.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit Society.Designer.cs">
+      <DependentUpon>Edit Society.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +254,12 @@
     </Compile>
     <Compile Include="Mentor\Mentor_ApproveMember.Designer.cs">
       <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mentor\Mentor_DeleteMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mentor\Mentor_DeleteMember.Designer.cs">
+      <DependentUpon>Mentor_DeleteMember.cs</DependentUpon>
     </Compile>
     <Compile Include="Mentor\Mentor_EventApproval.cs">
       <SubType>Form</SubType>
@@ -277,11 +309,23 @@
     <EmbeddedResource Include="Admin\Admin_SocietyApplications.resx">
       <DependentUpon>Admin_SocietyApplications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateAnnouncement.resx">
+      <DependentUpon>CreateAnnouncement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateEvent.resx">
       <DependentUpon>CreateEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateSociety.resx">
       <DependentUpon>CreateSociety.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit Announcement.resx">
+      <DependentUpon>Edit Announcement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit Event.resx">
+      <DependentUpon>Edit Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit Society.resx">
+      <DependentUpon>Edit Society.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
@@ -297,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor\Mentor_ApproveMember.resx">
       <DependentUpon>Mentor_ApproveMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mentor\Mentor_DeleteMember.resx">
+      <DependentUpon>Mentor_DeleteMember.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mentor\Mentor_EventApproval.resx">
       <DependentUpon>Mentor_EventApproval.cs</DependentUpon>

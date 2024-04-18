@@ -37,6 +37,7 @@ namespace SEProjectFinal.Mentor
             mentor_EventApproval.Show();
         }
 
+
         private void bunifuLabel1_Click(object sender, EventArgs e)
         {
 
@@ -54,6 +55,25 @@ namespace SEProjectFinal.Mentor
             this.Hide();
             Mentor_EventApproval mentor_EventApproval = new Mentor_EventApproval(this, mentor);
             mentor_EventApproval.Show();
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MentorLogin mentorLogin = new MentorLogin();
+            mentorLogin.Show();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            Mentor_DeleteMember mentor_DeleteMember = new Mentor_DeleteMember(this, mentor);
+            mentor_DeleteMember.Show();
+
         }
     }
 }

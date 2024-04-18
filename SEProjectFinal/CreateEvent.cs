@@ -74,5 +74,9 @@ namespace SEProjectFinal
             }
         }
 
+        private void CreateEvent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
