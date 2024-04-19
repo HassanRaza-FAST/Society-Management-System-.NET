@@ -120,23 +120,7 @@ namespace SEProjectFinal
         //    }
         //}
 
-
-
-
-
-        private void StudentLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuButton2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            HomeScreen homeScreen = new HomeScreen();
-            homeScreen.Show();
-        }
-
-        private void bunifuButton1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             StudentService studentService = new StudentService(our_connection_string);
             Student student = studentService.GetStudentByEmailAndPassword(textBox1.Text.Trim(), textBox2.Text.Trim());
@@ -177,6 +161,20 @@ namespace SEProjectFinal
                 SocietyMember_Home societyMember_Home = new SocietyMember_Home(student);
                 societyMember_Home.Show();
             }
+        }
+
+
+
+        private void returnbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.Show();
+        }
+
+        private void StudentLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

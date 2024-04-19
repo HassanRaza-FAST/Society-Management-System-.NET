@@ -57,9 +57,35 @@ namespace SEProjectFinal.Mentor
 
         }
 
-        
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int requestID = (int)dataGridView1.SelectedRows[0].Cells["RequestID"].Value;
+                UpdateMembershipStatus(requestID, "Accepted");
+                //show the updated datagrid
+                Mentor_ApproveMember_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Please select an application to accept.");
+            }
+        }
 
-        
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int requestID = (int)dataGridView1.SelectedRows[0].Cells["RequestID"].Value;
+                UpdateMembershipStatus(requestID, "Rejected");
+                //show the updated datagrid
+                Mentor_ApproveMember_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Please select an application to reject.");
+            }
+        }
         private void UpdateMembershipStatus(int requestID, string status)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
@@ -102,53 +128,6 @@ namespace SEProjectFinal.Mentor
             }
         }
 
-        private void bunifuButton4_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int requestID = (int)dataGridView1.SelectedRows[0].Cells["RequestID"].Value;
-                UpdateMembershipStatus(requestID, "Rejected");
-                //show the updated datagrid
-                Mentor_ApproveMember_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Please select an application to reject.");
-            }
-        }
 
-        private void bunifuButton5_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int requestID = (int)dataGridView1.SelectedRows[0].Cells["RequestID"].Value;
-                UpdateMembershipStatus(requestID, "Accepted");
-                //show the updated datagrid
-                Mentor_ApproveMember_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Please select an application to accept.");
-            }
-        }
-
-        private void bunifuButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MentorLogin mentorLogin = new MentorLogin();
-            mentorLogin.Show();
-        }
-
-        private void bunifuButton2_Click(object sender, EventArgs e)
-        {
-            //close app
-            Application.Exit();
-        }
-
-        private void bunifuButton3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            mentor_home.Show();
-        }
     }
 }

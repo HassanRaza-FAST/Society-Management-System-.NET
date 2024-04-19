@@ -92,53 +92,5 @@ namespace SEProjectFinal.Mentor
             MessageBox.Show("Event status updated successfully.");
         }
 
-        private void bunifuButton4_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int eventID = (int)dataGridView1.SelectedRows[0].Cells["EventID"].Value;
-                UpdateEventStatus(eventID, "Rejected");
-                //show the updated datagrid
-                Mentor_EventApproval_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Please select an application to reject.");
-            }
-        }
-
-        private void bunifuButton5_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int eventID = (int)dataGridView1.SelectedRows[0].Cells["EventID"].Value;
-                UpdateEventStatus(eventID, "Accepted");
-                //show the updated datagrid
-                Mentor_EventApproval_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Please select an application to accept.");
-            }
-        }
-
-        private void bunifuButton3_Click(object sender, EventArgs e)
-        {
-            // return to prev page
-            this.Hide();
-            mentor_Home.Show();
-        }
-
-        private void bunifuButton2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void bunifuButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MentorLogin mentorLogin = new MentorLogin();
-            mentorLogin.Show();
-        }
     }
 }

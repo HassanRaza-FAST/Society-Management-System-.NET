@@ -22,8 +22,8 @@ namespace SEProjectFinal
         {
             InitializeComponent();
             this.Load += Admin_SocietyApplications_Load;
-            //this.btnAccept.Click += btnAccept_Click;
-            //this.btnReject.Click += btnReject_Click;
+            this.btnAccept.Click += btnAccept_Click;
+            this.btnReject.Click += btnReject_Click;
         }
 
         private void Admin_SocietyApplications_Load(object sender, EventArgs e)
@@ -286,76 +286,25 @@ namespace SEProjectFinal
 
 
 
-        
-
-        
-
-       
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void bunifuButton2_Click(object sender, EventArgs e)
+        private void logoutbtn_Click(object sender, EventArgs e)
         {
             this.Hide();
             AdminLogin adminLogin = new AdminLogin();
             adminLogin.Show();
         }
 
-        private void btnAccept_Click_1(object sender, EventArgs e)
+        private void exitbtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnReject_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuIconButton1_Click(object sender, EventArgs e)
-        {
+            //close app
             Application.Exit();
         }
 
-        private void bunifuButton3_Click(object sender, EventArgs e)
+        private void returnbtn_Click(object sender, EventArgs e)
         {
             // return to previous page
             this.Hide();
             Admin_Home admin_Home = new Admin_Home();
             admin_Home.Show();
-        }
-
-
-        private void bunifuButton5_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int applicationID = (int)dataGridView1.SelectedRows[0].Cells["ApplicationID"].Value;
-                UpdateApplicationStatus(applicationID, "Rejected");
-                //show the updated datagrid
-                Admin_SocietyApplications_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Please select an application to reject.");
-            }
-        }
-
-        private void bunifuButton4_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int applicationID = (int)dataGridView1.SelectedRows[0].Cells["ApplicationID"].Value;
-                UpdateApplicationStatus(applicationID, "Accepted");
-                //show the updated datagrid
-                Admin_SocietyApplications_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Please select an application to accept.");
-            }
         }
 
         private int PromptForMentorId()
@@ -382,7 +331,6 @@ namespace SEProjectFinal
             // Return 0 if mentor ID was not entered or invalid
             return mentorId;
         }
-
 
 
     }
