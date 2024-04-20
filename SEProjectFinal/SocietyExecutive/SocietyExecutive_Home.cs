@@ -130,8 +130,8 @@ namespace SEProjectFinal
             DataTable dataTable = societyService.GetEventsForJoinedSocieties(student.StudentID);
             dataGridView1.DataSource = dataTable;
             dataGridView1.Visible = true;
-            label1.Text = "Viewing Events From Societies You Have Joined";
-            label1.Visible = true;
+            //label1.Text = "Viewing Events From Societies You Have Joined";
+            //label1.Visible = true;
 
         }
 
@@ -145,8 +145,8 @@ namespace SEProjectFinal
 
             // Show the DataGridView
             dataGridView1.Visible = true;
-            label1.Text = "Viewing Announcements From Societies You Have Joined";
-            label1.Visible = true;
+            //label1.Text = "Viewing Announcements From Societies You Have Joined";
+            //label1.Visible = true;
         }
 
         private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -56,6 +56,7 @@ namespace SEProjectFinal.Mentor
             Mentor_EventApproval mentor_EventApproval = new Mentor_EventApproval(this, mentor);
             mentor_EventApproval.Show();
 
+        }
         private void exitbtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -73,6 +74,11 @@ namespace SEProjectFinal.Mentor
             this.Hide();
             Mentor_DeleteMember mentor_DeleteMember = new Mentor_DeleteMember(this, mentor);
             mentor_DeleteMember.Show();
+
+        }
+
+        private void bunifuGradientPanel1_Click(object sender, EventArgs e)
+        {
 
         }
     }

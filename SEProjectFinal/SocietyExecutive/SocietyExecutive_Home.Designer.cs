@@ -581,65 +581,65 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Welcome Student as a Society Executive";
-            // 
+            //this.label1.AutoSize = true;
+            //this.label1.Location = new System.Drawing.Point(16, 34);
+            //this.label1.Name = "label1";
+            //this.label1.Size = new System.Drawing.Size(203, 13);
+            //this.label1.TabIndex = 1;
+            //this.label1.Text = "Welcome Student as a Society Executive";
+            //// 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(702, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Log out";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
+            //this.button1.Location = new System.Drawing.Point(702, 34);
+            //this.button1.Name = "button1";
+            //this.button1.Size = new System.Drawing.Size(75, 23);
+            //this.button1.TabIndex = 3;
+            //this.button1.Text = "Log out";
+            //this.button1.UseVisualStyleBackColor = true;
+            //this.button1.Click += new System.EventHandler(this.button1_Click);
+            //// 
             // exitbtn
             // 
-            this.exitbtn.Location = new System.Drawing.Point(19, 400);
-            this.exitbtn.Name = "exitbtn";
-            this.exitbtn.Size = new System.Drawing.Size(75, 23);
-            this.exitbtn.TabIndex = 4;
-            this.exitbtn.Text = "Exit";
-            this.exitbtn.UseVisualStyleBackColor = true;
-            this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
-            // 
+            //this.exitbtn.Location = new System.Drawing.Point(19, 400);
+            //this.exitbtn.Name = "exitbtn";
+            //this.exitbtn.Size = new System.Drawing.Size(75, 23);
+            //this.exitbtn.TabIndex = 4;
+            //this.exitbtn.Text = "Exit";
+            //this.exitbtn.UseVisualStyleBackColor = true;
+            //this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
+            //// 
             // linkLabel1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(16, 69);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(69, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Create Event";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(12, 100);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(132, 13);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "View your Event Requests";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
+            //this.linkLabel1.AutoSize = true;
+            //this.linkLabel1.Location = new System.Drawing.Point(16, 69);
+            //this.linkLabel1.Name = "linkLabel1";
+            //this.linkLabel1.Size = new System.Drawing.Size(69, 13);
+            //this.linkLabel1.TabIndex = 5;
+            //this.linkLabel1.TabStop = true;
+            //this.linkLabel1.Text = "Create Event";
+            //this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            //// 
+            //// linkLabel2
+            //// 
+            //this.linkLabel2.AutoSize = true;
+            //this.linkLabel2.Location = new System.Drawing.Point(12, 100);
+            //this.linkLabel2.Name = "linkLabel2";
+            //this.linkLabel2.Size = new System.Drawing.Size(132, 13);
+            //this.linkLabel2.TabIndex = 6;
+            //this.linkLabel2.TabStop = true;
+            //this.linkLabel2.Text = "View your Event Requests";
+            //this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            //// 
             // linkLabel3
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(16, 142);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(120, 13);
-            this.linkLabel3.TabIndex = 7;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "View Scheduled Events";
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            //this.linkLabel3.AutoSize = true;
+            //this.linkLabel3.Location = new System.Drawing.Point(16, 142);
+            //this.linkLabel3.Name = "linkLabel3";
+            //this.linkLabel3.Size = new System.Drawing.Size(120, 13);
+            //this.linkLabel3.TabIndex = 7;
+            //this.linkLabel3.TabStop = true;
+            //this.linkLabel3.Text = "View Scheduled Events";
+            //this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
 
             // 
             // label2
@@ -749,12 +749,12 @@
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.exitbtn);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            //this.Controls.Add(this.linkLabel3);
+            //this.Controls.Add(this.linkLabel2);
+            //this.Controls.Add(this.linkLabel1);
+            //this.Controls.Add(this.exitbtn);
+            //this.Controls.Add(this.button1);
+            //this.Controls.Add(this.label1);
 
             this.Name = "SocietyExecutive_Home";
             this.Text = "SocietyExecutive_Home";
