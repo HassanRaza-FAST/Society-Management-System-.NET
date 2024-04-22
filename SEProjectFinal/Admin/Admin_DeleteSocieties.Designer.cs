@@ -37,14 +37,16 @@
             this.bunifuButton5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForms.BunifuShadowPanel();
+            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.bunifuGradientPanel1.SuspendLayout();
+            this.bunifuShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(89, 81);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 54);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -228,7 +230,7 @@
             this.bunifuButton4.IdleIconLeftImage = null;
             this.bunifuButton4.IdleIconRightImage = null;
             this.bunifuButton4.IndicateFocus = false;
-            this.bunifuButton4.Location = new System.Drawing.Point(774, 450);
+            this.bunifuButton4.Location = new System.Drawing.Point(774, 479);
             this.bunifuButton4.Name = "bunifuButton4";
             this.bunifuButton4.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton4.OnDisabledState.BorderRadius = 2;
@@ -277,9 +279,11 @@
             this.bunifuShadowPanel1.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuShadowPanel1.BorderRadius = 1;
             this.bunifuShadowPanel1.BorderThickness = 1;
+            this.bunifuShadowPanel1.Controls.Add(this.bunifuLabel2);
+            this.bunifuShadowPanel1.Controls.Add(this.dataGridView1);
             this.bunifuShadowPanel1.FillStyle = Bunifu.UI.WinForms.BunifuShadowPanel.FillStyles.Solid;
             this.bunifuShadowPanel1.GradientMode = Bunifu.UI.WinForms.BunifuShadowPanel.GradientModes.Vertical;
-            this.bunifuShadowPanel1.Location = new System.Drawing.Point(50, 37);
+            this.bunifuShadowPanel1.Location = new System.Drawing.Point(50, 49);
             this.bunifuShadowPanel1.Name = "bunifuShadowPanel1";
             this.bunifuShadowPanel1.PanelColor = System.Drawing.Color.BlueViolet;
             this.bunifuShadowPanel1.PanelColor2 = System.Drawing.Color.BlueViolet;
@@ -292,21 +296,39 @@
             this.bunifuShadowPanel1.Style = Bunifu.UI.WinForms.BunifuShadowPanel.BevelStyles.Flat;
             this.bunifuShadowPanel1.TabIndex = 15;
             // 
+            // bunifuLabel2
+            // 
+            this.bunifuLabel2.AllowParentOverrides = false;
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel2.Location = new System.Drawing.Point(38, 22);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(224, 24);
+            this.bunifuLabel2.TabIndex = 1;
+            this.bunifuLabel2.Text = "Select A society to delete";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // Admin_DeleteSocieties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 573);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bunifuGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Admin_DeleteSocieties";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_ManageSocieties";
             this.Load += new System.EventHandler(this.Admin_DeleteSocieties_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.bunifuGradientPanel1.ResumeLayout(false);
             this.bunifuGradientPanel1.PerformLayout();
+            this.bunifuShadowPanel1.ResumeLayout(false);
+            this.bunifuShadowPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -319,5 +341,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton5;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton4;
         private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel1;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
     }
 }

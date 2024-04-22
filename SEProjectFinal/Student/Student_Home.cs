@@ -25,19 +25,27 @@ namespace SEProjectFinal
             this.student = student;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
+
+
+        private void Student_Home_Load(object sender, EventArgs e)
+        {
+            bunifuLabel1.Text = "Welcome " + student.FullName;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentLogin form3 = new StudentLogin();
             form3.Show();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
         {
             // View all societies ( we display them )
             SocietyService societyService = new SocietyService(our_connection_string);
@@ -49,28 +57,18 @@ namespace SEProjectFinal
             Viewing_societies_label.Visible = true;
         }
 
-        private void exitbtn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void createSocietylbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CreateSociety createSociety = new CreateSociety(this);
+            CreateSociety createSociety = new CreateSociety(this, this.student);
             createSociety.Show();
         }
 
-        private void joinsocietybtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton12_Click(object sender, EventArgs e)
         {
             this.Hide();
             JoinSociety joinSociety = new JoinSociety(this);
             joinSociety.Show();
-        }
-
-        private void Student_Home_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

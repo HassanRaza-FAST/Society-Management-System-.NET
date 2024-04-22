@@ -34,13 +34,13 @@ namespace SEProjectFinal.Mentor
             dataGridView1.DataSource = societyService.GetAllSocietyMembers(mentor.SocietyID);
         }
 
-        private void returnbtn_Click(object sender, EventArgs e)
+        private void bunifuButton3_Click(object sender, EventArgs e)
         {
             this.Hide();
             mentorHome.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bunifuButton4_Click(object sender, EventArgs e)
         {
             // Check if a member is selected
             if (dataGridView1.SelectedRows.Count > 0)

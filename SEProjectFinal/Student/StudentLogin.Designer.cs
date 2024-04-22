@@ -50,6 +50,7 @@
             this.textBox2.Location = new System.Drawing.Point(117, 110);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(148, 26);
             this.textBox2.TabIndex = 13;
             // 
@@ -348,6 +349,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StudentLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.StudentLogin_Load);
             this.bunifuGradientPanel1.ResumeLayout(false);

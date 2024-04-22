@@ -4642,7 +4642,17 @@
 </value>
   </data>
   <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
-    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI Emoji'; font-size: 16pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
+    <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI Emoji'; font-size: 16pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: center; }</value>
+  </data>
+  <data name="bunifuButton6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAQYAAAAnCAYAAADtsuYbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAADVSURBVHhe7dahDQJBEIbRSVZcThyOfqiAfuiCGlBXA4p+
+        UGjEchASxE8H+yZ5GTP6y9Q2h7nm+7Y7MLZ3C5ZajjXV9LjUpd/qBgxurbW3as8tEvX3ABjT93sQBuBH
+        GIAgDEAQBiAIAxCEAQjCAARhAIIwAEEYgCAMQBAGIAgDEIQBCMIABGEAgjAAQRiAIAxAEAYgCAMQhAEI
+        wgAEYQCCMABBGIAgDEAQBiAIAxCEAQjCAARhAIIwAEEYgPAJQ6v2vNb17wEwnk8YdrU7fV8HgL6v/fkF
+        x4cjOhCTutUAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="bunifuButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

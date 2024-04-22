@@ -52,36 +52,12 @@ namespace SEProjectFinal
         }
 
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            Admin_DeleteSocieties admin_delete_societies = new Admin_DeleteSocieties();
-            admin_delete_societies.Show();
-        }
+        
 
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // view all mentors
-            SocietyService societyService = new SocietyService(our_connection_string);
-            DataTable dt = societyService.GetAllMentors();
-            dataGridView1.DataSource = dt;
-            label1.Visible = true;
-            dataGridView1.Visible = true;
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // view all students
-            SocietyService societyService = new SocietyService(our_connection_string);
-            DataTable dt = societyService.GetAllStudents();
-            dataGridView1.DataSource = dt;
-            label1.Visible = true;
-            dataGridView1.Visible = true;
-        }
-
-        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton5_Click(object sender, EventArgs e)
         {
             // view all societies
+            label1.Text = "Viewing all societies";
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dt = societyService.GetAllSocieties();
             dataGridView1.DataSource = dt;
@@ -89,12 +65,38 @@ namespace SEProjectFinal
             dataGridView1.Visible = true;
         }
 
-        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+            // view all students
+            label1.Text = "Viewing all students";
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dt = societyService.GetAllStudents();
+            dataGridView1.DataSource = dt;
+            label1.Visible = true;
+            dataGridView1.Visible = true;
+        }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
         {
             this.Hide();
             Edit_Society edit_Society = new Edit_Society();
             edit_Society.Show();
         }
 
+        private void bunifuButton7_Click(object sender, EventArgs e)
+        {
+            // view all mentors
+            label1.Text = "Viewing all mentors";
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dt = societyService.GetAllMentors();
+            dataGridView1.DataSource = dt;
+            label1.Visible = true;
+            dataGridView1.Visible = true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,20 +24,22 @@ namespace SEProjectFinal
         
         private SocietyMember_Home societyMemberHome;
         private Student_Home studentHome;
+        private Student student;
 
-        public CreateSociety(SocietyMember_Home societyMemberHome)
+        public CreateSociety(SocietyMember_Home societyMemberHome, Student student)
         {
             InitializeComponent();
             this.Text = "Create Society";
             this.societyMemberHome = societyMemberHome;
-            
+            this.student = student;
         }
 
-        public CreateSociety(Student_Home studentHome)
+        public CreateSociety(Student_Home studentHome, Student student)
         {
             InitializeComponent();
             this.Text = "Create Society";
             this.studentHome = studentHome;
+            this.student = student;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -47,6 +49,18 @@ namespace SEProjectFinal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+
+        private void returnbtn_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
             //check if all text fields are filled in our form
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || comboBox1.SelectedIndex == -1 || string.IsNullOrEmpty(richTextBox1.Text))
             {
@@ -54,6 +68,12 @@ namespace SEProjectFinal
                 return;
             }
             SocietyService societyService = new SocietyService(our_connection_string);
+            int studentID = int.Parse(textBox1.Text.Trim());
+            if(studentID != this.student.StudentID)
+            {
+                MessageBox.Show("Your student ID does not matched with the filled form.");
+                return;
+            }
             SocietyApplication application = new SocietyApplication
             {
                 StudentID = int.Parse(textBox1.Text.Trim()),
@@ -76,8 +96,7 @@ namespace SEProjectFinal
             }
         }
 
-
-        private void returnbtn_Click(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
             if (societyMemberHome != null)
@@ -88,7 +107,6 @@ namespace SEProjectFinal
             {
                 studentHome.Show();
             }
-            
         }
     }
 }

@@ -39,30 +39,7 @@ namespace SEProjectFinal
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // after the user has clicked on the row, the data will be shown in the textboxes
-            // now he can edit the data and click on the edit button
-            // the data will be updated in the database
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                int eventID = (int)dataGridView1.SelectedRows[0].Cells["EventID"].Value;
-                string eventName = textBox1.Text;
-                string location = textBox2.Text;
-                string description = richTextBox1.Text;
-                DateTime eventDate = dateTimePicker1.Value;
-
-                SocietyService societyService = new SocietyService(our_connection_string);
-                bool isUpdated = societyService.UpdateEvent(eventID, eventName, location, description, eventDate);
-
-                if (isUpdated)
-                {
-                    MessageBox.Show("Event updated successfully.");
-                    Edit_Event_Load(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("An error occurred while updating the event.");
-                }
-            }
+            
             
         }
 
@@ -89,27 +66,18 @@ namespace SEProjectFinal
 
         private void returnbtn_Click(object sender, EventArgs e)
         {
-            // return to previous page
-            this.Hide();
-            societyExecutive_Home.Show();
+            
         }
 
         private void exitbtn_Click(object sender, EventArgs e)
         {
             //close app
-            Application.Exit();
+            
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            StudentLogin studentLogin = new StudentLogin();
-            studentLogin.Show();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            
         }
 
         private void Edit_Event_Load_1(object sender, EventArgs e)
@@ -145,6 +113,53 @@ namespace SEProjectFinal
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentLogin studentLogin = new StudentLogin();
+            studentLogin.Show();
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            // return to previous page
+            this.Hide();
+            societyExecutive_Home.Show();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            // after the user has clicked on the row, the data will be shown in the textboxes
+            // now he can edit the data and click on the edit button
+            // the data will be updated in the database
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int eventID = (int)dataGridView1.SelectedRows[0].Cells["EventID"].Value;
+                string eventName = textBox1.Text;
+                string location = textBox2.Text;
+                string description = richTextBox1.Text;
+                DateTime eventDate = dateTimePicker1.Value;
+
+                SocietyService societyService = new SocietyService(our_connection_string);
+                bool isUpdated = societyService.UpdateEvent(eventID, eventName, location, description, eventDate);
+
+                if (isUpdated)
+                {
+                    MessageBox.Show("Event updated successfully.");
+                    Edit_Event_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred while updating the event.");
+                }
+            }
         }
     }
 }
