@@ -118,5 +118,10 @@ namespace SEProjectFinal
                 MessageBox.Show("Please select a row to edit.");
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

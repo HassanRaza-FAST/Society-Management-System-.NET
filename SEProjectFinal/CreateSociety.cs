@@ -15,6 +15,7 @@ using System.Configuration;
 using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using SEProjectFinal.DomainModel;
+using System.Text.RegularExpressions;
 
 namespace SEProjectFinal
 {
@@ -67,6 +68,12 @@ namespace SEProjectFinal
                 MessageBox.Show("Please fill all the fields");
                 return;
             }
+            Regex regex = new Regex("^[a-zA-Z]+$");
+            if (!regex.IsMatch(textBox2.Text))
+            {
+                MessageBox.Show("Society Name can only be Alphabets");
+                    return;
+            }
             SocietyService societyService = new SocietyService(our_connection_string);
             int studentID = int.Parse(textBox1.Text.Trim());
             if(studentID != this.student.StudentID)
@@ -107,6 +114,16 @@ namespace SEProjectFinal
             {
                 studentHome.Show();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

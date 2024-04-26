@@ -450,11 +450,12 @@
             this.bunifuLabel1.Location = new System.Drawing.Point(254, 20);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(484, 43);
+            this.bunifuLabel1.Size = new System.Drawing.Size(482, 43);
             this.bunifuLabel1.TabIndex = 19;
-            this.bunifuLabel1.Text = "Viewing All Events made be you";
+            this.bunifuLabel1.Text = "Viewing All Events made by you";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel1.Click += new System.EventHandler(this.bunifuLabel1_Click);
             // 
             // bunifuShadowPanel1
             // 

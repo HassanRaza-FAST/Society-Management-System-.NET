@@ -405,9 +405,9 @@
             this.bunifuLabel1.Location = new System.Drawing.Point(222, 3);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(632, 43);
+            this.bunifuLabel1.Size = new System.Drawing.Size(630, 43);
             this.bunifuLabel1.TabIndex = 19;
-            this.bunifuLabel1.Text = "Viewing All Announcements made be you";
+            this.bunifuLabel1.Text = "Viewing All Announcements made by you";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
