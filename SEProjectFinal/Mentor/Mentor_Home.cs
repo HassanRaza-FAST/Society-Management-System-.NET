@@ -19,42 +19,68 @@ namespace SEProjectFinal.Mentor
             this.mentor = mentor;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        
+
+        private void Mentor_Home_Load(object sender, EventArgs e)
+        {
+            bunifuLabel1.Text = "Welcome " + mentor.FullName;
+        }
+
+        
+
+
+        private void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
         {
             this.Hide();
             Mentor_ApproveMember mentor_ApproveMember = new Mentor_ApproveMember(this);
             mentor_ApproveMember.Show();
         }
 
-        private void Mentor_Home_Load(object sender, EventArgs e)
-        {
-            label2.Text = "Welcome mentor";
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton4_Click(object sender, EventArgs e)
         {
             this.Hide();
             Mentor_EventApproval mentor_EventApproval = new Mentor_EventApproval(this, mentor);
             mentor_EventApproval.Show();
+
+        }
+        
+
+        
+
+        
+
+        private void bunifuGradientPanel1_Click(object sender, EventArgs e)
+        {
+
         }
 
-        private void exitbtn_Click(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void logoutbtn_Click(object sender, EventArgs e)
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Close();
             MentorLogin mentorLogin = new MentorLogin();
             mentorLogin.Show();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton6_Click(object sender, EventArgs e)
         {
             this.Hide();
             Mentor_DeleteMember mentor_DeleteMember = new Mentor_DeleteMember(this, mentor);
             mentor_DeleteMember.Show();
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

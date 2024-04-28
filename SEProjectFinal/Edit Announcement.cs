@@ -37,6 +37,46 @@ namespace SEProjectFinal
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        //make a function of data grid that will show the data of the selected row in the textboxes
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                textBox1.Text = row.Cells["Title"].Value.ToString();
+                richTextBox1.Text = row.Cells["Description"].Value.ToString();
+            }
+        }
+       
+
+
+
+        private void returnbtn_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void exitbtn_Click_1(object sender, EventArgs e)
+        {
+            //close app
+            
+        }
+
+        private void logoutbtn_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
             // after the user has clicked on the row, the data will be shown in the textboxes
             // now he can edit the data and click on the edit button
             // the data will be updated in the database
@@ -61,43 +101,23 @@ namespace SEProjectFinal
             }
         }
 
-        //make a function of data grid that will show the data of the selected row in the textboxes
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                textBox1.Text = row.Cells["Title"].Value.ToString();
-                richTextBox1.Text = row.Cells["Description"].Value.ToString();
-            }
-        }
-       
-
-
-
-        private void returnbtn_Click_1(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
             // return to previous page
             this.Hide();
             societyExecutive_Home.Show();
         }
 
-        private void exitbtn_Click_1(object sender, EventArgs e)
-        {
-            //close app
-            Application.Exit();
-        }
-
-        private void logoutbtn_Click_1(object sender, EventArgs e)
+        private void bunifuButton4_Click(object sender, EventArgs e)
         {
             this.Hide();
             StudentLogin studentLogin = new StudentLogin();
             studentLogin.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void bunifuButton3_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

@@ -27,11 +27,20 @@ namespace SEProjectFinal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            societyExecutive_Home.Show();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CreateEvent_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             //check if all fields are filed in our form
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(richTextBox1.Text) || string.IsNullOrEmpty(textBox4.Text))
@@ -74,9 +83,10 @@ namespace SEProjectFinal
             }
         }
 
-        private void CreateEvent_Load(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            societyExecutive_Home.Show();
         }
     }
 }

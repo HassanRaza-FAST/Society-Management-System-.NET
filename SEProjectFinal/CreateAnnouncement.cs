@@ -30,13 +30,35 @@ namespace SEProjectFinal
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
             this.Hide();
             societyExecutive_Home.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             //check if all fields are filed in our form
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(richTextBox1.Text))
@@ -73,26 +95,6 @@ namespace SEProjectFinal
             {
                 MessageBox.Show("An error occurred while creating the Announcement.");
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

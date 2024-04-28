@@ -18,7 +18,7 @@ namespace SEProjectFinal
 
         private Student student;
         private SocietyExecutive societyExecutive;
-       
+
 
         public SocietyExecutive_Home(Student student)
         {
@@ -31,24 +31,34 @@ namespace SEProjectFinal
             societyExecutive = societyService.GetSocietyExecutiveByStudentId(student.StudentID);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+
+        private void SocietyExecutive_Home_Load(object sender, EventArgs e)
+        {
+            bunifuLabel1.Text = "Welcome " + student.FullName + " As Society Executive";
+        }
+
+        
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             this.Close();
             StudentLogin form3 = new StudentLogin();
             form3.Show();
         }
 
-        private void exitbtn_Click(object sender, EventArgs e)
+        private void bunifuButton2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void SocietyExecutive_Home_Load(object sender, EventArgs e)
+        private void bunifuButton6_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            CreateEvent createEvent = new CreateEvent(this);
+            createEvent.Show();
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton5_Click(object sender, EventArgs e)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dataTable = societyService.GetEventsByStatus("Pending", societyExecutive.SocietyID);
@@ -59,7 +69,7 @@ namespace SEProjectFinal
             dataGridView1.Visible = true;
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton4_Click(object sender, EventArgs e)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dataTable = societyService.GetEvents(societyExecutive.SocietyID);
@@ -70,21 +80,14 @@ namespace SEProjectFinal
             dataGridView1.Visible = true;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            CreateEvent createEvent = new CreateEvent(this);
-            createEvent.Show();
-        }
-
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton12_Click(object sender, EventArgs e)
         {
             this.Hide();
             CreateAnnouncement createAnnouncement = new CreateAnnouncement(this);
             createAnnouncement.Show();
         }
 
-        private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton8_Click(object sender, EventArgs e)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dataTable = societyService.GetAnnouncementofExec(societyExecutive.StudentID);
@@ -95,7 +98,7 @@ namespace SEProjectFinal
             dataGridView1.Visible = true;
         }
 
-        private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton11_Click(object sender, EventArgs e)
         {
             //a society exec may be member of other societies as well
             // show all events of all societies that this society exec is member of
@@ -103,12 +106,11 @@ namespace SEProjectFinal
             DataTable dataTable = societyService.GetEventsForJoinedSocieties(student.StudentID);
             dataGridView1.DataSource = dataTable;
             dataGridView1.Visible = true;
-            label1.Text = "Viewing Events From Societies You Have Joined";
-            label1.Visible = true;
-
+            label2.Text = "Viewing Events From Societies You Have Joined";
+            label2.Visible = true;
         }
 
-        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton7_Click(object sender, EventArgs e)
         {
             SocietyService societyService = new SocietyService(our_connection_string);
             DataTable dataTable = societyService.GetAnnouncementsForJoinedSocieties(student.StudentID);
@@ -118,22 +120,24 @@ namespace SEProjectFinal
 
             // Show the DataGridView
             dataGridView1.Visible = true;
-            label1.Text = "Viewing Announcements From Societies You Have Joined";
-            label1.Visible = true;
+            label2.Text = "Viewing Announcements From Societies You Have Joined";
+            label2.Visible = true;
         }
 
-        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton9_Click(object sender, EventArgs e)
         {
             this.Hide();
             Edit_Announcement edit_Announcement = new Edit_Announcement(this, societyExecutive);
             edit_Announcement.Show();
         }
 
-        private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bunifuButton10_Click(object sender, EventArgs e)
         {
             this.Hide();
             Edit_Event edit_Event = new Edit_Event(this, societyExecutive);
             edit_Event.Show();
         }
+
+        
     }
 }

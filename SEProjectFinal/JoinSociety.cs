@@ -40,18 +40,16 @@ namespace SEProjectFinal
 
         private void returnbtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            if (societyMemberHome != null)
-            {
-                societyMemberHome.Show();
-            }
-            else
-            {
-                studentHome.Show();
-            }
+            
         }
 
         private void joinbtn_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
         {
             //check if all fields and combobox are seletec  in our form otherwise show a message
             if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(richTextBox1.Text) || comboBox1.SelectedIndex == -1 || comboBox2.SelectedIndex == -1)
@@ -82,7 +80,19 @@ namespace SEProjectFinal
             {
                 MessageBox.Show("An error occurred while submitting the society membership application.");
             }
+        }
 
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (societyMemberHome != null)
+            {
+                societyMemberHome.Show();
+            }
+            else
+            {
+                studentHome.Show();
+            }
         }
     }
 }
