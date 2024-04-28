@@ -37,6 +37,48 @@ namespace SEProjectFinal
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            
+        }
+
+
+        private void exitbtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void returnbtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Edit_Society_Load(object sender, EventArgs e)
+        {
+            // view all societies
+            SocietyService societyService = new SocietyService(our_connection_string);
+            DataTable dt = societyService.GetAllSocieties();
+            dataGridView1.DataSource = dt;
+            dataGridView1.Visible = true;
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Admin_Home admin_Home = new Admin_Home();
+            admin_Home.Show();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Get the details from the textboxes
@@ -70,33 +112,9 @@ namespace SEProjectFinal
             }
         }
 
-
-        private void exitbtn_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
 
-        private void returnbtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Admin_Home admin_Home = new Admin_Home();
-            admin_Home.Show();
-        }
-
-        private void logoutbtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminLogin adminLogin = new AdminLogin();
-            adminLogin.Show();
-        }
-
-        private void Edit_Society_Load(object sender, EventArgs e)
-        {
-            // view all societies
-            SocietyService societyService = new SocietyService(our_connection_string);
-            DataTable dt = societyService.GetAllSocieties();
-            dataGridView1.DataSource = dt;
-            dataGridView1.Visible = true;
         }
     }
 }

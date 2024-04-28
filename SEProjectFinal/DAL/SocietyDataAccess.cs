@@ -257,6 +257,13 @@ namespace SEProjectFinal
                             command.ExecuteNonQuery();
                         }
 
+                        // Make the society id of mentor to null
+                        using (SqlCommand command = new SqlCommand("UPDATE Mentors SET SocietyID = NULL WHERE SocietyID = @SocietyID", connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@SocietyID", societyID);
+                            command.ExecuteNonQuery();
+                        }
+
                         // Delete the society
                         using (SqlCommand command = new SqlCommand("DELETE FROM Societies WHERE SocietyID = @SocietyID", connection, transaction))
                         {
@@ -275,6 +282,37 @@ namespace SEProjectFinal
                         transaction.Rollback();
 
                         return false;
+                    }
+                }
+            }
+        }
+
+        public Society GetSociety(int id)
+        {
+            // get society by id
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM Societies WHERE SocietyID = @SocietyID", connection))
+                {
+                    command.Parameters.AddWithValue("@SocietyID", id);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Society
+                            {
+                                SocietyID = reader.GetInt32(reader.GetOrdinal("SocietyID")),
+                                SocietyName = reader.GetString(reader.GetOrdinal("SocietyName")),
+                                Description = reader.GetString(reader.GetOrdinal("Description")),
+                                CreatedByStudentID = reader.GetInt32(reader.GetOrdinal("CreatedByStudentID")),
+                                DepartmentName = reader.GetString(reader.GetOrdinal("DepartmentName"))
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                 }
             }
