@@ -108,13 +108,6 @@ namespace SEProjectFinal
             societyExecutive_Home.Show();
         }
 
-        private void bunifuButton4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            StudentLogin studentLogin = new StudentLogin();
-            studentLogin.Show();
-        }
-
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
             Application.Exit();

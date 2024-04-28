@@ -33,32 +33,6 @@ namespace SEProjectFinal.Mentor
             DataTable table = societyService.GetAllMembershipApplications();
             dataGridView1.DataSource = table;
         }
-
-       
-
-        private void returnbtn_Click_1(object sender, EventArgs e)
-        {
-            // return to previous page
-            this.Hide();
-            mentor_home.Show();
-        }
-
-        private void exitbtn_Click_1(object sender, EventArgs e)
-        {
-            //close app
-            Application.Exit();
-        }
-
-        private void logoutbtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MentorLogin mentorLogin = new MentorLogin();
-            mentorLogin.Show();
-
-        }
-
-        
-
         
         private void UpdateMembershipStatus(int requestID, string status)
         {

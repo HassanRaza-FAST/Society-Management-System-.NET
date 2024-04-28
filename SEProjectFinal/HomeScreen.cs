@@ -30,7 +30,7 @@ namespace SEProjectFinal
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
-            pictureBox1.Image = Image.FromFile("C:\\Users\\Maaz\\Downloads\\overpopulation.png");
+            pictureBox1.Image = Image.FromFile("../../Images/logo2.jpg");
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 

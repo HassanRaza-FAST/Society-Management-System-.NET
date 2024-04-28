@@ -65,13 +65,6 @@ namespace SEProjectFinal
             dataGridView1.Visible = true;
         }
 
-        private void bunifuButton4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminLogin adminLogin = new AdminLogin();
-            adminLogin.Show();
-        }
-
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
             Application.Exit();

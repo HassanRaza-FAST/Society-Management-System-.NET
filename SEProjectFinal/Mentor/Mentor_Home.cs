@@ -66,8 +66,8 @@ namespace SEProjectFinal.Mentor
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
             MentorLogin mentorLogin = new MentorLogin();
+            this.Hide();
             mentorLogin.Show();
         }
 
@@ -78,9 +78,5 @@ namespace SEProjectFinal.Mentor
             mentor_DeleteMember.Show();
         }
 
-        private void bunifuButton3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

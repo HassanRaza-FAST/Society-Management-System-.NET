@@ -26,11 +26,9 @@ namespace SEProjectFinal
         }
 
 
-
-
         private void Student_Home_Load(object sender, EventArgs e)
         {
-            bunifuLabel1.Text = "Welcome " + student.FullName;
+            bunifuLabel1.Text = "Welcome Student " + student.FullName;
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
@@ -67,7 +65,7 @@ namespace SEProjectFinal
         private void bunifuButton12_Click(object sender, EventArgs e)
         {
             this.Hide();
-            JoinSociety joinSociety = new JoinSociety(this);
+            JoinSociety joinSociety = new JoinSociety(this, this.student);
             joinSociety.Show();
         }
     }

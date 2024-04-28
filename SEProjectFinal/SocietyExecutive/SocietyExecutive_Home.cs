@@ -35,13 +35,13 @@ namespace SEProjectFinal
 
         private void SocietyExecutive_Home_Load(object sender, EventArgs e)
         {
-            bunifuLabel1.Text = "Welcome " + student.FullName + " As Society Executive";
+            bunifuLabel1.Text = "Welcome Society Executive " + student.FullName;
         }
 
         
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             StudentLogin form3 = new StudentLogin();
             form3.Show();
         }

@@ -67,6 +67,13 @@ namespace SEProjectFinal
 
         public int CreateMembershipRequest(MembershipRequest application)
         {
+            // check if the society exists
+            Society society = societyDataAccess.GetSociety(application.SocietyID);
+            // if the society exists check if the application department name matches the society department name
+            if (society == null || !society.DepartmentName.Equals(application.DepartmentName))
+            {
+                return -1;
+            }
             return societyDataAccess.CreateMembershipRequest(application);
         }
         public DataTable GetAllMembershipApplications()
