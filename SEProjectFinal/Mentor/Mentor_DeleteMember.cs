@@ -71,5 +71,6 @@ namespace SEProjectFinal.Mentor
                 MessageBox.Show("Please select a society Member to delete.");
             }
         }
+
     }
 }

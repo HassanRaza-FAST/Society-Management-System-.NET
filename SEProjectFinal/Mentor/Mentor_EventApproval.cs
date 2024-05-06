@@ -134,11 +134,5 @@ namespace SEProjectFinal.Mentor
             Application.Exit();
         }
 
-        private void bunifuButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MentorLogin mentorLogin = new MentorLogin();
-            mentorLogin.Show();
-        }
     }
 }

@@ -33,7 +33,8 @@ namespace SEProjectFinal
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            this.Hide();
             StudentLogin form3 = new StudentLogin();
             form3.Show();
         }

@@ -297,13 +297,6 @@ namespace SEProjectFinal
 
         }
 
-        private void bunifuButton2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AdminLogin adminLogin = new AdminLogin();
-            adminLogin.Show();
-        }
-
         private void btnAccept_Click_1(object sender, EventArgs e)
         {
 

@@ -68,7 +68,7 @@ namespace SEProjectFinal
                 MessageBox.Show("Please fill all the fields");
                 return;
             }
-            Regex regex = new Regex("^[a-zA-Z]+$");
+            Regex regex = new Regex("^[a-zA-Z ]+$");
             if (!regex.IsMatch(textBox2.Text))
             {
                 MessageBox.Show("Society Name can only be Alphabets");
